@@ -103,9 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async channelId() {
       if (this._id) return this._id;
+      const cached = sessionStorage.getItem('yt_channel_id');
+      if (cached) { this._id = cached; return cached; }
       const r = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=id&forHandle=${this.handle}&key=${this.key}`);
       const d = await r.json();
       this._id = d.items?.[0]?.id || null;
+      if (this._id) sessionStorage.setItem('yt_channel_id', this._id);
       return this._id;
     },
 
@@ -115,10 +118,31 @@ document.addEventListener('DOMContentLoaded', () => {
       return d.items?.[0]?.id?.videoId || null;
     },
 
-    async latestVideos(channelId, max = 6) {
-      const r = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&order=date&maxResults=${max}&key=${this.key}`);
+    async uploadsPlaylistId(channelId) {
+      const cacheKey = `yt_uploads_${channelId}`;
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) return cached;
+      const r = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${this.key}`);
       const d = await r.json();
-      return d.items || [];
+      const pid = d.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null;
+      if (pid) sessionStorage.setItem(cacheKey, pid);
+      return pid;
+    },
+
+    async latestVideos(channelId, max = 6) {
+      const pid = await this.uploadsPlaylistId(channelId);
+      if (!pid) return [];
+      const r = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${pid}&maxResults=${max}&key=${this.key}`);
+      const d = await r.json();
+      return (d.items || []).map(item => ({
+        id: { videoId: item.snippet.resourceId.videoId },
+        snippet: {
+          title: item.snippet.title,
+          publishedAt: item.snippet.publishedAt,
+          thumbnails: item.snippet.thumbnails,
+          description: item.snippet.description
+        }
+      }));
     },
 
     async playlists(channelId, max = 8) {

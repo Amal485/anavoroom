@@ -156,19 +156,21 @@ a { text-decoration: none; color: inherit; }
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 0.25rem;
+  gap: 0.1rem;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .nav-menu li a {
   color: rgba(255,255,255,0.85);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.6rem;
   border-radius: 4px;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-menu li a:hover { color: var(--gold); }
@@ -1010,7 +1012,7 @@ a { text-decoration: none; color: inherit; }
 .footer-bottom-links a:hover { color: var(--gold); }
 
 /* ===== MOBILE NAV DRAWER ===== */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .hamburger { display: flex; }
   .nav-cta { display: none; }
 
