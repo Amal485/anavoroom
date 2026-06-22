@@ -108,11 +108,11 @@ a { text-decoration: none; color: inherit; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 1.1rem 0;
-  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+  background: var(--navy);
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar.scrolled {
-  background: var(--navy);
   padding: 0.7rem 0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
@@ -235,7 +235,7 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #051FAA 0%, #03158a 50%, #051FAA 100%);
+  background: var(--white);
   overflow: hidden;
 }
 
@@ -243,9 +243,9 @@ a { text-decoration: none; color: inherit; }
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(3, 21, 138, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(229, 184, 28, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 60% 80%, rgba(3, 21, 138, 0.3) 0%, transparent 40%);
+    radial-gradient(circle at 10% 50%, rgba(5, 31, 170, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 90% 20%, rgba(229, 184, 28, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 70% 85%, rgba(5, 31, 170, 0.03) 0%, transparent 40%);
 }
 
 .hero-content {
@@ -278,7 +278,7 @@ a { text-decoration: none; color: inherit; }
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
-  color: var(--white);
+  color: var(--navy);
   line-height: 1.1;
   margin-bottom: 1.5rem;
   max-width: 750px;
@@ -291,7 +291,7 @@ a { text-decoration: none; color: inherit; }
 
 .hero-verse {
   font-size: 1rem;
-  color: rgba(255,255,255,0.65);
+  color: var(--gray);
   font-style: italic;
   margin-bottom: 0.4rem;
   max-width: 600px;
@@ -317,7 +317,7 @@ a { text-decoration: none; color: inherit; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--gray);
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -329,7 +329,7 @@ a { text-decoration: none; color: inherit; }
   display: block;
   width: 1px;
   height: 40px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(5, 31, 170, 0.2);
 }
 
 @keyframes bounce {
@@ -461,20 +461,9 @@ a { text-decoration: none; color: inherit; }
 /* ===== SERVICES / TIMES ===== */
 .services-section {
   padding: 6rem 0;
-  background: var(--navy);
+  background: var(--offwhite);
   position: relative;
   overflow: hidden;
-}
-
-.services-section::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(3,21,138,0.5) 0%, transparent 70%);
 }
 
 .services-header {
@@ -493,8 +482,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .service-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--navy);
+  border: 1px solid transparent;
   border-radius: 8px;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -502,8 +491,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 .service-card:hover {
-  background: rgba(229, 184, 28, 0.1);
-  border-color: rgba(229, 184, 28, 0.3);
+  background: var(--purple);
+  border-color: var(--gold);
   transform: translateY(-4px);
 }
 
@@ -693,10 +682,12 @@ a { text-decoration: none; color: inherit; }
 /* ===== QUOTE / SCRIPTURE BANNER ===== */
 .scripture-banner {
   padding: 6rem 0;
-  background: var(--purple);
+  background: var(--white);
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
 }
 
 .scripture-banner::before {
@@ -707,7 +698,7 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(-50%);
   font-family: 'Playfair Display', serif;
   font-size: 20rem;
-  color: rgba(255,255,255,0.03);
+  color: rgba(5, 31, 170, 0.04);
   line-height: 1;
   pointer-events: none;
 }
@@ -722,7 +713,7 @@ a { text-decoration: none; color: inherit; }
 .scripture-banner blockquote p {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--white);
+  color: var(--navy);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-style: italic;
@@ -1086,20 +1077,21 @@ a { text-decoration: none; color: inherit; }
 /* ===== PAGE BANNER (inner pages) ===== */
 .page-banner {
   padding: 10rem 0 5rem;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--purple) 100%);
+  background: var(--white);
   text-align: center;
   position: relative;
+  border-bottom: 4px solid var(--gold);
 }
 
 .page-banner h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--white);
+  color: var(--navy);
   margin-bottom: 1rem;
 }
 
 .page-banner p {
-  color: rgba(255,255,255,0.65);
+  color: var(--gray);
   max-width: 550px;
   margin: 0 auto;
 }
@@ -1109,7 +1101,7 @@ a { text-decoration: none; color: inherit; }
   justify-content: center;
   gap: 0.5rem;
   font-size: 0.78rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--gray);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
