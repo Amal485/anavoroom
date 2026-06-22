@@ -3,15 +3,15 @@
 /* Google Fonts imported via HTML */
 
 :root {
-  --navy:    #051FAA;   /* brand primary */
-  --purple:  #03158a;   /* dark navy — hover/depth */
+  --navy:    #1B3B8A;   /* deep sapphire navy */
+  --purple:  #0F2460;   /* dark navy — hover/depth */
   --gold:    #E5B81C;   /* brand accent */
   --gold-lt: #F2CB3D;   /* gold highlight */
   --white:   #ffffff;
-  --offwhite:#EEF1FB;   /* light periwinkle — navy family */
+  --offwhite:#EEF1F8;   /* soft blue-white — navy family */
   --gray:    #5B6478;   /* blue-tinted body gray */
-  --dark:    #0A1640;   /* deep navy-black — footer/headings */
-  --border:  #D8DEFA;   /* periwinkle border */
+  --dark:    #0A1A3E;   /* deep navy-black — footer/headings */
+  --border:  #D5DCF0;   /* periwinkle border */
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -243,9 +243,9 @@ a { text-decoration: none; color: inherit; }
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 8% 55%, rgba(5, 31, 170, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 92% 15%, rgba(229, 184, 28, 0.09) 0%, transparent 38%),
-    radial-gradient(circle at 65% 88%, rgba(5, 31, 170, 0.05) 0%, transparent 38%);
+    radial-gradient(circle at 8% 55%, rgba(27, 59, 138, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 92% 15%, rgba(229, 184, 28, 0.10) 0%, transparent 38%),
+    radial-gradient(circle at 65% 88%, rgba(27, 59, 138, 0.05) 0%, transparent 38%);
 }
 
 .hero-content {
@@ -329,7 +329,7 @@ a { text-decoration: none; color: inherit; }
   display: block;
   width: 1px;
   height: 40px;
-  background: rgba(5, 31, 170, 0.2);
+  background: rgba(27, 59, 138, 0.2);
 }
 
 @keyframes bounce {
@@ -698,7 +698,7 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(-50%);
   font-family: 'Playfair Display', serif;
   font-size: 20rem;
-  color: rgba(5, 31, 170, 0.04);
+  color: rgba(27, 59, 138, 0.04);
   line-height: 1;
   pointer-events: none;
 }
@@ -760,8 +760,8 @@ a { text-decoration: none; color: inherit; }
 
 .gallery-item:hover { opacity: 0.85; }
 .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-.gallery-item:nth-child(2) { background: linear-gradient(135deg, #03158a, #051FAA); }
-.gallery-item:nth-child(4) { background: linear-gradient(135deg, #03158a, #051FAA); }
+.gallery-item:nth-child(2) { background: linear-gradient(135deg, #0F2460, #1B3B8A); }
+.gallery-item:nth-child(4) { background: linear-gradient(135deg, #0F2460, #1B3B8A); }
 
 .gallery-cta { text-align: center; margin-top: 2.5rem; }
 
@@ -1164,7 +1164,7 @@ a { text-decoration: none; color: inherit; }
 .playlist-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(5,31,170,0.55);
+  background: rgba(27,59,138,0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1174,7 +1174,7 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.05em;
   transition: background 0.2s ease;
 }
-.playlist-card:hover .playlist-overlay { background: rgba(5,31,170,0.35); }
+.playlist-card:hover .playlist-overlay { background: rgba(27,59,138,0.35); }
 .playlist-card h3 {
   font-size: 0.9rem;
   font-weight: 700;
