@@ -3,15 +3,15 @@
 /* Google Fonts imported via HTML */
 
 :root {
-  --navy:    #051FAA;
-  --purple:  #03158a;
-  --gold:    #E5B81C;
-  --gold-lt: #eecf4f;
+  --navy:    #051FAA;   /* brand primary */
+  --purple:  #03158a;   /* dark navy — hover/depth */
+  --gold:    #E5B81C;   /* brand accent */
+  --gold-lt: #F2CB3D;   /* gold highlight */
   --white:   #ffffff;
-  --offwhite:#CCD3CB;
-  --gray:    #6b7280;
-  --dark:    #111827;
-  --border:  #e5e7eb;
+  --offwhite:#EEF1FB;   /* light periwinkle — navy family */
+  --gray:    #5B6478;   /* blue-tinted body gray */
+  --dark:    #0A1640;   /* deep navy-black — footer/headings */
+  --border:  #D8DEFA;   /* periwinkle border */
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -235,7 +235,7 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   display: flex;
   align-items: center;
-  background: var(--white);
+  background: linear-gradient(160deg, #ffffff 0%, #EEF1FB 100%);
   overflow: hidden;
 }
 
@@ -243,9 +243,9 @@ a { text-decoration: none; color: inherit; }
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 10% 50%, rgba(5, 31, 170, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 90% 20%, rgba(229, 184, 28, 0.07) 0%, transparent 40%),
-    radial-gradient(circle at 70% 85%, rgba(5, 31, 170, 0.03) 0%, transparent 40%);
+    radial-gradient(circle at 8% 55%, rgba(5, 31, 170, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 92% 15%, rgba(229, 184, 28, 0.09) 0%, transparent 38%),
+    radial-gradient(circle at 65% 88%, rgba(5, 31, 170, 0.05) 0%, transparent 38%);
 }
 
 .hero-content {
