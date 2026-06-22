@@ -200,7 +200,8 @@
 
         <div class="contact-form-wrapper reveal">
           <h3>Send Us a Message</h3>
-          <form id="contact-form">
+          <form id="contact-form" name="contact" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -254,7 +255,8 @@
             will intercede on your behalf. Your request will be kept in confidence.
           </p>
         </div>
-        <form id="prayer-form" class="reveal">
+        <form id="prayer-form" name="prayer" data-netlify="true" class="reveal">
+          <input type="hidden" name="form-name" value="prayer" />
           <div class="form-row">
             <div class="form-group">
               <label for="prayer-name">Your Name</label>

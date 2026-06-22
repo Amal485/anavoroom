@@ -152,8 +152,20 @@ When updating any detail, update **all 7 HTML files**.
 | `≤ 640px` | Single-column everything, stacked buttons |
 
 ## Forms
-Contact and prayer request forms are front-end only (show success state, send nothing).
-To receive submissions, wire to **Netlify Forms** (simplest — just add `netlify` attribute to `<form>`).
+Both forms (`#contact-form`, `#prayer-form`) submit to **Netlify Forms** via AJAX (no page reload).
+
+| Attribute added | Purpose |
+|----------------|---------|
+| `data-netlify="true"` | Tells Netlify to capture this form |
+| `name="contact"` / `name="prayer"` | Unique form identifier in Netlify dashboard |
+| `<input type="hidden" name="form-name" value="…">` | Required for AJAX submissions |
+
+Submissions appear in **Netlify dashboard → Forms**. To receive them by email:
+1. Netlify dashboard → Site → Forms → `contact` → **Enable email notifications**
+2. Enter `unitedshalomchurch@gmail.com`
+3. Repeat for the `prayer` form
+
+When running locally (`file://` or `localhost`) the success state is simulated — real POSTs only happen on the deployed Netlify site.
 
 ## Deployment
 | | |

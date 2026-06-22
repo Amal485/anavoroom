@@ -55,23 +55,41 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(el => revealObserver.observe(el));
   }
 
+  // ----- Form helpers -----
+  const isLocal = !window.location.hostname || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  function netlifySubmit(form, successLabel, resetLabel) {
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const done = (ok) => {
+      if (ok) {
+        btn.textContent = successLabel;
+        btn.style.cssText = 'background:#22c55e;border-color:#22c55e;color:#fff';
+        setTimeout(() => { btn.textContent = resetLabel; btn.disabled = false; btn.style = ''; form.reset(); }, 3500);
+      } else {
+        btn.textContent = 'Failed — please email us directly';
+        btn.style.cssText = 'background:#ef4444;border-color:#ef4444;color:#fff';
+        setTimeout(() => { btn.textContent = resetLabel; btn.disabled = false; btn.style = ''; }, 4000);
+      }
+    };
+
+    if (isLocal) { done(true); return; }
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(() => done(true)).catch(() => done(false));
+  }
+
   // ----- Contact Form -----
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = contactForm.querySelector('button[type="submit"]');
-      btn.textContent = 'Message Sent!';
-      btn.disabled = true;
-      btn.style.background = '#22c55e';
-      btn.style.borderColor = '#22c55e';
-      btn.style.color = '#fff';
-      setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-        btn.style = '';
-        contactForm.reset();
-      }, 3500);
+      netlifySubmit(contactForm, 'Message Sent!', 'Send Message');
     });
   }
 
@@ -80,18 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (prayerForm) {
     prayerForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = prayerForm.querySelector('button[type="submit"]');
-      btn.textContent = 'Prayer Request Submitted!';
-      btn.disabled = true;
-      btn.style.background = '#22c55e';
-      btn.style.borderColor = '#22c55e';
-      btn.style.color = '#fff';
-      setTimeout(() => {
-        btn.textContent = 'Submit Prayer Request';
-        btn.disabled = false;
-        btn.style = '';
-        prayerForm.reset();
-      }, 3500);
+      netlifySubmit(prayerForm, 'Prayer Request Submitted!', 'Submit Prayer Request');
     });
   }
 
