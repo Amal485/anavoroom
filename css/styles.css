@@ -1680,4 +1680,764 @@ a { text-decoration: none; color: inherit; }
   .next-event-date { font-size: 3.5rem; }
   .next-event-year { font-size: 1.5rem; }
   .tiktok-section { padding: 2rem 1.25rem; }
+  .ev-detail-grid { grid-template-columns: 1fr; }
+  .checkout-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== HOME HERO (event-poster style) ===== */
+.home-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.home-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,128,80,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 20%, rgba(255,128,80,0.08) 0%, transparent 50%);
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 9rem 0 6rem;
+}
+
+.home-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 700;
+  color: var(--offwhite);
+  line-height: 0.95;
+  margin: 1rem 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.home-hero-title em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.home-hero-sub {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 1.75rem;
+}
+
+.home-hero-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.price-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.price-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.price-note {
+  font-size: 0.78rem;
+  color: var(--gray);
+}
+
+.home-hero-cta {
+  font-size: 1rem !important;
+  padding: 1rem 2.5rem !important;
+}
+
+/* ===== EVENTS LISTING SECTION ===== */
+.events-listing-section {
+  padding: 7rem 0;
+  background: var(--charcoal);
+}
+
+.events-listing-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.event-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.ev-card-loading {
+  color: var(--gray);
+  padding: 1rem;
+  grid-column: 1/-1;
+}
+
+/* Event card (like a concert poster) */
+.ev-card {
+  background: var(--charcoal-lt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ev-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+.ev-card-banner {
+  height: 220px;
+  background: linear-gradient(135deg, var(--ev-color, #FF8050) 0%, var(--dark) 100%);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+}
+
+.ev-card-date-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+}
+
+.ev-pill-day {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--offwhite);
+  line-height: 1;
+}
+
+.ev-pill-month {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-top: 0.2rem;
+}
+
+.ev-sold-out-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.75);
+  color: var(--gray);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.ev-card-body { padding: 1.5rem; }
+
+.ev-card-city {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.4rem;
+}
+
+.ev-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--offwhite);
+  margin-bottom: 0.6rem;
+}
+
+.ev-card-desc {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 1.25rem;
+  line-height: 1.55;
+}
+
+.ev-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ev-card-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--offwhite);
+}
+
+.ev-cta {
+  font-size: 0.8rem !important;
+  padding: 0.7rem 1.5rem !important;
+}
+
+.btn-sold {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  padding: 0.7rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+}
+
+.ev-avail {
+  font-size: 0.72rem;
+  color: var(--gray);
+  margin-top: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ===== EVENT DETAIL PAGE ===== */
+.ev-detail-banner {
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  padding-top: 5rem;
+  background: var(--dark);
+  border-bottom: 1px solid var(--border);
+}
+
+.ev-detail-banner-inner {
+  width: 100%;
+  padding: 4rem 0 3rem;
+}
+
+.ev-detail-banner-inner .container,
+.ev-detail-banner .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+.ev-detail-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--offwhite);
+  line-height: 1;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.ev-detail-time {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+.ev-detail-price-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ev-detail-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.ev-avail-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  background: rgba(255,128,80,0.12);
+  border: 1px solid rgba(255,128,80,0.3);
+  color: var(--orange);
+}
+
+.ev-avail-badge.sold {
+  background: rgba(136,132,127,0.1);
+  border-color: var(--border);
+  color: var(--gray);
+}
+
+/* Checkout steps bar */
+.checkout-steps-bar {
+  background: var(--charcoal-md);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 0;
+}
+
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.checkout-steps .step {
+  color: var(--gray);
+}
+
+.checkout-steps .step.active {
+  color: var(--orange);
+}
+
+.checkout-steps .step.done {
+  color: rgba(234,230,225,0.5);
+}
+
+.checkout-steps .step-sep {
+  color: var(--border);
+  font-size: 0.7rem;
+}
+
+/* Event detail grid */
+.ev-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.ev-long-desc p {
+  color: var(--gray);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.ev-expect-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ev-expect-list li {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+/* Ticket form card */
+.ev-ticket-form-wrap {
+  position: sticky;
+  top: 6rem;
+}
+
+.ticket-form-card {
+  background: var(--charcoal-lt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  border-top: 4px solid var(--orange);
+}
+
+.ticket-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--offwhite);
+  margin-bottom: 1.5rem;
+}
+
+.ticket-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255,128,80,0.07);
+  border: 1px solid rgba(255,128,80,0.2);
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.ticket-total-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.ticket-form-note {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: rgba(136,132,127,0.6);
+  letter-spacing: 0.04em;
+}
+
+.form-hint {
+  font-size: 0.72rem;
+  color: rgba(136,132,127,0.7);
+  margin-top: 0.3rem;
+}
+
+.form-error-msg {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  color: #fc8181;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.api-error-msg {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  color: #fc8181;
+  font-size: 0.88rem;
+  margin: 1.5rem 0;
+}
+
+.sold-out-notice {
+  padding: 2rem;
+  background: var(--charcoal-lt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.sold-out-notice h3 {
+  color: var(--offwhite);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== CHECKOUT PAGE ===== */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.checkout-summary-card {
+  background: var(--charcoal-lt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.checkout-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.checkout-summary-row:last-child { border-bottom: none; }
+.checkout-summary-row span { color: var(--gray); }
+.checkout-summary-row strong { color: var(--offwhite); }
+.checkout-summary-row.total-row strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--orange);
+}
+
+.bank-dest-card {
+  background: var(--charcoal-lt);
+  border: 1px solid rgba(255,128,80,0.25);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bank-dest-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(255,128,80,0.07);
+  border-bottom: 1px solid rgba(255,128,80,0.15);
+}
+
+.bank-lock-icon { font-size: 1.5rem; }
+
+.bank-dest-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--offwhite);
+  margin-bottom: 0.2rem;
+}
+
+.bank-dest-header p {
+  font-size: 0.78rem;
+  color: var(--gray);
+}
+
+.bank-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.bank-detail-row:last-child { border-bottom: none; }
+.bank-detail-row span { color: var(--gray); }
+.bank-detail-row strong { color: var(--offwhite); }
+
+.bank-mono {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+}
+
+.ref-highlight {
+  color: var(--orange) !important;
+  font-size: 1rem;
+}
+
+.bank-detail-row.ref-row { background: rgba(255,128,80,0.05); }
+.bank-detail-row.total-row strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--orange);
+}
+
+.bank-ref-reminder {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,128,80,0.07);
+  border: 1px solid rgba(255,128,80,0.2);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--gray);
+}
+
+.bank-ref-reminder .ticket-ref-number {
+  color: var(--orange);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.12em;
+}
+
+.dummy-api-notice {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(34,197,94,0.06);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: rgba(134,239,172,0.8);
+}
+
+.payment-form-card {
+  background: var(--charcoal-lt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  border-top: 4px solid var(--orange);
+}
+
+.payment-amount-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: rgba(255,128,80,0.07);
+  border: 1px solid rgba(255,128,80,0.2);
+  border-radius: 6px;
+  margin: 1.25rem 0;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.co-amount-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+/* ===== CONFIRMATION PAGE ===== */
+.conf-header {
+  text-align: center;
+  padding: 1rem 0 3rem;
+}
+
+.conf-tick {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.12);
+  border: 3px solid #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #22c55e;
+  margin: 0 auto 1.25rem;
+}
+
+.conf-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--offwhite);
+  margin-bottom: 0.5rem;
+}
+
+.conf-subtitle {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+.ticket-card {
+  background: var(--charcoal-lt);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ticket-card-header {
+  padding: 2rem;
+  background: var(--charcoal-md);
+  border-bottom: 3px dashed var(--border);
+  text-align: center;
+}
+
+.ticket-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.ticket-status.status-confirmed {
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: #22c55e;
+}
+
+.ticket-status.status-pending {
+  background: rgba(234,179,8,0.1);
+  border: 1px solid rgba(234,179,8,0.3);
+  color: #fbbf24;
+}
+
+.status-icon { font-size: 0.9rem; }
+
+.ticket-event-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--offwhite);
+  margin-bottom: 0.4rem;
+}
+
+.ticket-event-date {
+  font-size: 0.82rem;
+  color: var(--gray);
+  letter-spacing: 0.06em;
+}
+
+.ticket-card-body { padding: 2rem; }
+
+.ticket-ref-block {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255,128,80,0.06);
+  border: 1px solid rgba(255,128,80,0.2);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.ticket-ref-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+}
+
+.ticket-ref-number {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.12em;
+}
+
+.ticket-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.td-item {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.td-item:nth-child(even) { border-right: none; }
+.td-item:nth-last-child(-n+2) { border-bottom: none; }
+.td-item span { display: block; color: var(--gray); font-size: 0.72rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.td-item strong { color: var(--offwhite); }
+
+.ticket-notice {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(255,128,80,0.06);
+  border: 1px solid rgba(255,128,80,0.15);
+  border-radius: 8px;
+  font-size: 0.83rem;
+  color: var(--gray);
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ticket-card-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+

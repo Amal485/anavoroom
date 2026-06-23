@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment — anavoroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Step indicator -->
+  <div class="checkout-steps-bar">
+    <div class="container">
+      <div class="checkout-steps">
+        <div class="step done">1 — Details</div>
+        <div class="step-sep">→</div>
+        <div class="step active">2 — Payment</div>
+        <div class="step-sep">→</div>
+        <div class="step">3 — Confirmed</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="checkout-wrap" style="padding:5rem 0 7rem">
+    <div class="container">
+      <div class="checkout-grid">
+
+        <!-- Left: order summary + bank details -->
+        <div>
+          <p class="section-label">Order Summary</p>
+          <div id="checkout-summary" class="checkout-summary-card"></div>
+
+          <p class="section-label" style="margin-top:2.5rem">Pay By Bank Transfer</p>
+          <div class="bank-dest-card">
+            <div class="bank-dest-header">
+              <span class="bank-lock-icon">🔒</span>
+              <div>
+                <h3>Direct Bank Transfer</h3>
+                <p>No fees — your payment goes directly to anavoroom</p>
+              </div>
+            </div>
+            <div id="bank-dest-details"></div>
+          </div>
+
+          <div class="bank-ref-reminder">
+            <p>⚠️ <strong>Important:</strong> Use your ticket reference as the payment reference:</p>
+            <p class="ticket-ref-number" id="pending-ticket-ref" style="margin-top:0.5rem;font-size:1.4rem"></p>
+          </div>
+
+          <div class="dummy-api-notice">
+            <p>🔧 <strong>Demo mode:</strong> This is a dummy payment gateway. In production this would connect to anavoroom's bank API and redirect to your bank's secure Open Banking portal. No real money is transferred.</p>
+          </div>
+        </div>
+
+        <!-- Right: "Your bank details" form (dummy payer info) -->
+        <div>
+          <p class="section-label">Confirm Your Payment</p>
+          <div class="payment-form-card">
+            <p style="font-size:0.88rem;color:var(--gray);margin-bottom:1.5rem">
+              In production, clicking "Confirm Payment" would open your bank's secure portal to authorise the transfer. For now, enter any details below to simulate the payment.
+            </p>
+
+            <form id="payment-form" novalidate>
+              <div class="form-group">
+                <label for="payer-name">Your Full Name</label>
+                <input type="text" id="payer-name" name="payer_name" placeholder="Name on your bank account" required />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="payer-sort">Sort Code</label>
+                  <input type="text" id="payer-sort" name="payer_sort_code" placeholder="00-00-00" maxlength="8" />
+                </div>
+                <div class="form-group">
+                  <label for="payer-account">Account Number</label>
+                  <input type="text" id="payer-account" name="payer_account" placeholder="00000000" maxlength="8" />
+                </div>
+              </div>
+
+              <div class="payment-amount-display">
+                <span>You're paying</span>
+                <div class="co-amount-val">—</div>
+              </div>
+
+              <div id="payment-form-error" class="form-error-msg" style="display:none"></div>
+
+              <button type="submit" id="payment-submit" class="btn btn-orange" style="width:100%;font-size:1rem;padding:1rem;margin-top:0.75rem">
+                Confirm Payment →
+              </button>
+
+              <p style="text-align:center;margin-top:1rem;font-size:0.75rem;color:var(--gray)">
+                By confirming you agree to our ticket terms. Tickets are non-refundable.
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem">
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Populate the payment amount display from sessionStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const raw = sessionStorage.getItem('anavoroom_checkout');
+      if (raw) {
+        const data = JSON.parse(raw);
+        const amountEl = document.querySelector('.co-amount-val');
+        if (amountEl) amountEl.textContent = '£' + Number(data.amount).toFixed(2);
+      }
+    });
+  </script>
+</body>
+</html>

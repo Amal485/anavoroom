@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event — anavoroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="watch.html">Watch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- EVENT BANNER (populated by JS) -->
+  <div id="event-banner" class="ev-detail-banner">
+    <div class="ev-detail-banner-inner">
+      <div id="event-loading" style="text-align:center;color:var(--gray);padding-top:5rem">Loading event…</div>
+    </div>
+  </div>
+
+  <!-- Step indicator -->
+  <div class="checkout-steps-bar">
+    <div class="container">
+      <div class="checkout-steps">
+        <div class="step active">1 — Details</div>
+        <div class="step-sep">→</div>
+        <div class="step">2 — Payment</div>
+        <div class="step-sep">→</div>
+        <div class="step">3 — Confirmed</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="event-detail-wrap">
+    <div id="event-error" class="api-error-msg" style="display:none"></div>
+
+    <section style="padding:5rem 0">
+      <div class="container">
+        <div class="ev-detail-grid">
+
+          <!-- Left: event info -->
+          <div class="ev-detail-info">
+            <p class="section-label">About This Event</p>
+            <div id="event-long-desc" class="ev-long-desc"></div>
+            <div style="margin-top:2.5rem">
+              <h3 style="font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1rem">What to Expect</h3>
+              <ul class="ev-expect-list">
+                <li>🎵 Live worship</li>
+                <li>🙏 Preaching and the Word</li>
+                <li>✨ Prayer and ministry time</li>
+                <li>🤝 Community and fellowship</li>
+              </ul>
+            </div>
+            <div style="margin-top:2rem;padding:1.25rem;background:rgba(255,128,80,0.07);border:1px solid rgba(255,128,80,0.2);border-radius:8px">
+              <p style="font-size:0.83rem;color:var(--gray)">
+                📍 <strong style="color:var(--offwhite)">Venue address</strong> is shared with everyone who books a ticket. Book now and we'll send the details to your email before the event.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: ticket form -->
+          <div id="ticket-form-wrap" class="ev-ticket-form-wrap">
+            <div class="ticket-form-card">
+              <h2 class="ticket-form-title">Get Your Tickets</h2>
+
+              <form id="ticket-form" novalidate>
+                <div class="form-group">
+                  <label for="buyer-name">Full Name</label>
+                  <input type="text" id="buyer-name" name="buyer_name" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="buyer-email">Email Address</label>
+                  <input type="email" id="buyer-email" name="buyer_email" placeholder="your@email.com" required />
+                  <p class="form-hint">Venue details and confirmation will be sent here</p>
+                </div>
+                <div class="form-group">
+                  <label for="buyer-phone">Phone Number <span style="font-weight:400;opacity:0.6">(optional)</span></label>
+                  <input type="tel" id="buyer-phone" name="buyer_phone" placeholder="+44 7000 000000" />
+                </div>
+                <div class="form-group">
+                  <label for="ticket-qty">Number of Tickets</label>
+                  <select id="ticket-qty" name="quantity">
+                    <!-- Options populated by JS -->
+                  </select>
+                </div>
+
+                <div class="ticket-total-row">
+                  <span>Total</span>
+                  <span id="ticket-total" class="ticket-total-price">—</span>
+                </div>
+
+                <div id="ticket-form-error" class="form-error-msg" style="display:none"></div>
+
+                <button type="submit" id="ticket-submit" class="btn btn-orange" style="width:100%;margin-top:1.25rem;font-size:1rem;padding:1rem">
+                  Proceed to Payment →
+                </button>
+              </form>
+
+              <p class="ticket-form-note">
+                Powered by anavoroom's direct bank payment — no booking fees.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer" style="margin-top:0">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem">
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
+        <a href="events.html" style="color:var(--orange);font-size:0.8rem">← Back to Events</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

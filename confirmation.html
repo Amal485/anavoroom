@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Confirmed — anavoroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    @media print {
+      .navbar, .no-print, footer { display: none !important; }
+      body { background: white !important; color: #111 !important; }
+      .ticket-card { border: 2px solid #FF8050 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled no-print" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Step indicator -->
+  <div class="checkout-steps-bar no-print">
+    <div class="container">
+      <div class="checkout-steps">
+        <div class="step done">1 — Details</div>
+        <div class="step-sep">→</div>
+        <div class="step done">2 — Payment</div>
+        <div class="step-sep">→</div>
+        <div class="step active">3 — Confirmed ✓</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirmation-wrap" style="padding:4rem 0 7rem">
+    <div class="container" style="max-width:680px">
+
+      <div class="conf-header reveal">
+        <div class="conf-tick">✓</div>
+        <h1 class="conf-title">You're In!</h1>
+        <p class="conf-subtitle">Your ticket has been confirmed. See you on the 5th.</p>
+      </div>
+
+      <div id="conf-loading" style="text-align:center;padding:3rem;color:var(--gray)">Loading your ticket…</div>
+      <div id="conf-error" class="api-error-msg" style="display:none"></div>
+      <div id="ticket-card"></div>
+
+    </div>
+  </div>
+
+  <footer class="footer no-print">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem">
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
+        <a href="events.html" style="color:var(--orange);font-size:0.8rem">← Back to Events</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
