@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>United Shalom Pentecostal Church Manchester</title>
-  <meta name="description" content="Welcome to United Shalom Pentecostal Church Manchester — where faith grows, love flourishes, and lives are transformed." />
+  <title>anavoroom — Christian Events Community</title>
+  <meta name="description" content="anavoroom is a Spirit-led Christian community creating large-scale events where people encounter the living God. Next event: 5 September 2026." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="pictures/uspc-logo.png" />
 </head>
 <body>
 
@@ -20,33 +17,18 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="pictures/uspc-logo.png"
-             alt="USPC Manchester Logo" />
-        <div class="nav-logo-text">
-          USPC Manchester
-          <span>United Shalom Pentecostal Church</span>
-        </div>
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
       </a>
-
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li class="has-dropdown">
-          <a href="about.html">About Us</a>
+          <a href="about.html">About</a>
           <ul class="dropdown-menu">
-            <li><a href="about.html#history">Our History</a></li>
+            <li><a href="about.html#story">Our Story</a></li>
             <li><a href="about.html#vision">Vision &amp; Mission</a></li>
             <li><a href="about.html#leadership">Leadership</a></li>
-            <li><a href="about.html#beliefs">What We Believe</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown">
-          <a href="ministries.html">Ministries</a>
-          <ul class="dropdown-menu">
-            <li><a href="ministries.html#worship">Worship</a></li>
-            <li><a href="ministries.html#youth">Youth &amp; Children</a></li>
-            <li><a href="ministries.html#women">Women's Ministry</a></li>
-            <li><a href="ministries.html#charity">Charity &amp; Giving</a></li>
-            <li><a href="ministries.html#outreach">Community Outreach</a></li>
+            <li><a href="about.html#charity">Charity</a></li>
           </ul>
         </li>
         <li><a href="events.html">Events</a></li>
@@ -54,9 +36,7 @@
         <li><a href="watch.html">Watch</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
-      <a href="contact.html#prayer" class="btn btn-gold nav-cta">Prayer Request</a>
-
+      <a href="events.html" class="btn btn-orange nav-cta">Next Event</a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -68,47 +48,49 @@
     <div class="hero-bg-pattern"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">Welcome to Our Church</div>
+        <div class="hero-event-badge">
+          <span class="badge-dot"></span>
+          Next Event — 5 September 2026
+        </div>
+        <div class="hero-eyebrow">Christian Events Community</div>
         <h1 class="hero-title">
-          United Shalom<br />
-          Pentecostal Church<br />
-          <em>Manchester</em>
+          Creating Spaces<br />
+          for <em>Encounter.</em>
         </h1>
         <p class="hero-verse">
-          "Go therefore and make disciples of all nations, baptising them in the name of the Father
-          and of the Son and of the Holy Spirit."
+          "For where two or three are gathered in my name, there am I among them."
         </p>
-        <p class="hero-verse-ref">Matthew 28:19</p>
+        <p class="hero-verse-ref">Matthew 18:20</p>
         <div class="hero-actions">
-          <a href="#services" class="btn btn-gold">Join Us Sunday</a>
-          <a href="about.html" class="btn btn-outline-gold">Learn More</a>
+          <a href="events.html" class="btn btn-orange">See Next Event</a>
+          <a href="watch.html" class="btn btn-outline-white">Watch Us</a>
         </div>
       </div>
     </div>
     <div class="hero-scroll">Scroll</div>
   </section>
 
-  <!-- ===== WELCOME STRIP ===== -->
-  <div class="welcome-strip">
+  <!-- ===== EVENT STRIP ===== -->
+  <div class="event-strip">
     <div class="container">
-      <p>A close-knit congregation where faith grows, love flourishes, and lives are transformed — You are welcome here.</p>
+      <p>Coming Up: <strong>5 September 2026</strong> — Manchester area &nbsp;·&nbsp; <a href="contact.html">Message us for venue details →</a></p>
     </div>
   </div>
 
-  <!-- ===== LIVE STREAM WIDGET (shown only when channel is live) ===== -->
-  <section id="live-widget" style="display:none;background:var(--navy);padding:3rem 0">
+  <!-- ===== LIVE WIDGET (shown only when channel is live) ===== -->
+  <section id="live-widget" style="display:none;padding:3rem 0">
     <div class="container">
       <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem">
         <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#e53e3e;color:#fff;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:20px">
           <span style="width:7px;height:7px;border-radius:50%;background:#fff;animation:livepulse 1.4s infinite"></span>Live Now
         </span>
-        <p style="color:rgba(255,255,255,0.7);font-size:0.85rem">USPC Manchester is streaming live</p>
+        <p style="color:var(--gray);font-size:0.85rem">anavoroom is streaming live</p>
       </div>
-      <div id="live-embed" style="border-radius:10px;overflow:hidden;aspect-ratio:16/9;max-width:860px">
+      <div id="live-embed" style="border-radius:10px;overflow:hidden;aspect-ratio:16/9;max-width:860px;background:#000">
         <!-- iframe injected by JS -->
       </div>
       <p style="margin-top:1rem;text-align:right">
-        <a href="watch.html" style="color:var(--gold);font-size:0.85rem;font-weight:600">Open Watch page →</a>
+        <a href="watch.html" style="color:var(--orange);font-size:0.85rem;font-weight:600">Open Watch page →</a>
       </p>
     </div>
   </section>
@@ -116,165 +98,108 @@
     @keyframes livepulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
   </style>
 
-  <!-- ===== ABOUT / WELCOME ===== -->
+  <!-- ===== ABOUT PREVIEW ===== -->
   <section class="about-section" id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-image reveal">
-          <div class="about-image-placeholder">Church Photo</div>
-          <div class="about-badge">
-            <span class="year">MAN</span>
-            <span class="year-label">Manchester</span>
-          </div>
+        <div class="reveal">
+          <p class="about-big-text">Where the<br /><em>Presence</em><br />Falls.</p>
         </div>
         <div class="about-content reveal">
           <p class="section-label">Who We Are</p>
-          <h2 class="section-title">A Community Built on Faith, Love &amp; Unity</h2>
-          <p>
-            United Shalom Pentecostal Church Manchester is a Spirit-filled, Bible-believing church
-            dedicated to sharing the love of God with our community and beyond. We are part of the
-            United Shalom Pentecostal Church family and are committed to making disciples of all nations.
+          <h2 class="section-title on-light">A Community Built Around Encounter</h2>
+          <p style="color:#5A5752;margin-top:1.25rem">
+            anavoroom is a Spirit-led Christian community passionate about hosting large-scale
+            events where people can encounter the living God. We believe in the power of gathering —
+            for worship, prayer, and real community.
           </p>
-          <p>
-            Whether you are new to faith, returning, or simply searching — our doors are open to
-            everyone. We believe that everyone deserves to experience the transforming power of God's
-            love, and we strive to be a church where all are welcomed and none are forgotten.
+          <p style="color:#5A5752">
+            From worship nights to conferences, every event we create is an invitation to
+            experience something greater. We are not just putting on shows — we are creating
+            moments that change lives.
           </p>
-          <div class="about-values">
+          <div class="about-values" style="margin:2rem 0">
             <div class="value-item">
-              <div class="value-icon">🙏</div>
+              <div class="value-icon">✨</div>
               <div>
-                <h4>Prayer</h4>
-                <p>We are a praying church, rooted in the power of God.</p>
-              </div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon">📖</div>
-              <div>
-                <h4>The Word</h4>
-                <p>Bible-based teaching at the centre of all we do.</p>
-              </div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon">🕊️</div>
-              <div>
-                <h4>The Spirit</h4>
-                <p>Spirit-filled worship that encounters the living God.</p>
+                <h4>Encounter</h4>
+                <p>Creating moments where people meet God</p>
               </div>
             </div>
             <div class="value-item">
               <div class="value-icon">🤝</div>
               <div>
                 <h4>Community</h4>
-                <p>Building genuine relationships and serving our city.</p>
+                <p>Gathering diverse people as one</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🎵</div>
+              <div>
+                <h4>Worship</h4>
+                <p>Music and praise at the heart</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🌍</div>
+              <div>
+                <h4>Impact</h4>
+                <p>Serving our communities with love</p>
               </div>
             </div>
           </div>
-          <a href="about.html" class="btn btn-navy">More About Us</a>
+          <a href="about.html" class="btn btn-dark">Learn More About Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SERVICE TIMES ===== -->
-  <section class="services-section" id="services">
+  <!-- ===== FEATURED EVENT ===== -->
+  <section class="featured-event-section" id="events">
     <div class="container">
-      <div class="services-header reveal">
-        <p class="section-label">Come &amp; Worship With Us</p>
-        <h2 class="section-title">Service Times</h2>
-        <p class="section-subtitle">
-          We gather regularly to worship, grow in faith, and build community together.
-          All are welcome — come as you are.
-        </p>
+      <div style="text-align:center;margin-bottom:2rem" class="reveal">
+        <p class="section-label">Mark Your Calendar</p>
+        <h2 class="section-title">Next Event</h2>
       </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-card-icon">⛪</div>
-          <h3>Sunday School</h3>
-          <p class="day">Every Sunday</p>
-          <p class="time">9:30 – 10:00</p>
-          <p class="time-note">For all ages</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-card-icon">🙌</div>
-          <h3>English Service</h3>
-          <p class="day">Every Sunday</p>
-          <p class="time">10:15 – 11:15</p>
-          <p class="time-note">English worship service</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-card-icon">🕊️</div>
-          <h3>Malayalam Service</h3>
-          <p class="day">Every Sunday</p>
-          <p class="time">11:15 – 13:15</p>
-          <p class="time-note">Malayalam worship service</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-card-icon">🌙</div>
-          <h3>All-Night Prayer</h3>
-          <p class="day">Monthly</p>
-          <p class="time">10:00 PM – Dawn</p>
-          <p class="time-note">Check events for dates</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== MINISTRIES ===== -->
-  <section class="ministries-section" id="ministries">
-    <div class="container">
-      <div class="ministries-header reveal">
-        <p class="section-label">Get Involved</p>
-        <h2 class="section-title">Our Ministries</h2>
-        <p class="section-subtitle">
-          There is a place for everyone at USPC Manchester. Discover the ministries where you can
-          grow, serve, and belong.
-        </p>
+      <div class="featured-event-card reveal">
+        <div class="event-card-date-col">
+          <span class="event-month">September</span>
+          <span class="event-day">5</span>
+          <span class="event-year">2026</span>
+        </div>
+        <div class="event-card-body">
+          <span class="event-label">Upcoming Event</span>
+          <h2>anavoroom Live</h2>
+          <p>
+            An evening of worship, prayer, and encounter. Join us as we gather together
+            and create space for God to move. You won't want to miss this.
+          </p>
+          <div class="event-meta-row">
+            <div class="event-meta-item">
+              <span>📍</span>
+              <span>Manchester, M22 area — <a href="contact.html" style="color:var(--orange)">message us for address</a></span>
+            </div>
+            <div class="event-meta-item">
+              <span>📅</span>
+              <span>Friday 5 September 2026</span>
+            </div>
+          </div>
+          <a href="events.html" class="btn btn-orange">Event Details</a>
+        </div>
       </div>
-      <div class="ministries-grid">
-        <div class="ministry-card reveal">
-          <div class="ministry-card-img">🎵</div>
-          <div class="ministry-card-body">
-            <h3>Worship Ministry</h3>
-            <p>
-              Our worship team leads the congregation into the presence of God through
-              anointed praise and worship, creating an atmosphere where lives are changed.
-            </p>
-            <a href="ministries.html#worship" class="ministry-card-link">Learn more</a>
-          </div>
-        </div>
-        <div class="ministry-card reveal">
-          <div class="ministry-card-img">👧</div>
-          <div class="ministry-card-body">
-            <h3>Youth &amp; Children</h3>
-            <p>
-              We invest in the next generation through Sunday School, Kids Club, and a dedicated
-              youth programme designed to help young people encounter God.
-            </p>
-            <a href="ministries.html#youth" class="ministry-card-link">Learn more</a>
-          </div>
-        </div>
-        <div class="ministry-card reveal">
-          <div class="ministry-card-img">👩</div>
-          <div class="ministry-card-body">
-            <h3>Women's Ministry</h3>
-            <p>
-              Empowering women in faith, purpose, and community through regular meetings,
-              retreats, and support networks.
-            </p>
-            <a href="ministries.html#women" class="ministry-card-link">Learn more</a>
-          </div>
-        </div>
-        <div class="ministry-card reveal">
-          <div class="ministry-card-img">🌍</div>
-          <div class="ministry-card-body">
-            <h3>Community Outreach</h3>
-            <p>
-              Serving Manchester with compassion — food banks, community support, and
-              evangelism that takes the love of God outside our walls.
-            </p>
-            <a href="ministries.html#outreach" class="ministry-card-link">Learn more</a>
-          </div>
+
+      <!-- Countdown -->
+      <div style="text-align:center;margin-top:2.5rem" class="reveal">
+        <p class="section-label" style="margin-bottom:1.5rem">Counting Down To September 5</p>
+        <div class="countdown-wrap" id="countdown">
+          <div class="count-item"><span class="count-num">—</span><span class="count-label">Days</span></div>
+          <div class="count-sep">:</div>
+          <div class="count-item"><span class="count-num">—</span><span class="count-label">Hours</span></div>
+          <div class="count-sep">:</div>
+          <div class="count-item"><span class="count-num">—</span><span class="count-label">Mins</span></div>
+          <div class="count-sep">:</div>
+          <div class="count-item"><span class="count-num">—</span><span class="count-label">Secs</span></div>
         </div>
       </div>
     </div>
@@ -285,27 +210,26 @@
     <div class="container">
       <blockquote class="reveal">
         <p>
-          "The Spirit of the Lord is upon me, because he has anointed me to proclaim good news
-          to the poor. He has sent me to proclaim liberty to the captives and recovering of sight
-          to the blind, to set at liberty those who are oppressed."
+          "And they were all filled with the Holy Spirit and began to speak in other tongues
+          as the Spirit gave them utterance."
         </p>
-        <cite>Luke 4:18 — ESV</cite>
+        <cite>Acts 2:4 — ESV</cite>
       </blockquote>
     </div>
   </section>
 
-  <!-- ===== EVENTS ===== -->
-  <section class="events-section" id="events">
+  <!-- ===== WATCH PREVIEW ===== -->
+  <section class="watch-preview-section" id="watch">
     <div class="container">
-      <div class="events-header reveal">
+      <div class="watch-preview-header reveal">
         <div>
-          <p class="section-label">What's On</p>
-          <h2 class="section-title">Upcoming Events</h2>
+          <p class="section-label">anavoroom on YouTube</p>
+          <h2 class="section-title">Latest Videos</h2>
         </div>
-        <a href="events.html" class="btn btn-outline-gold">View All Events</a>
+        <a href="watch.html" class="btn btn-outline-orange">Watch All</a>
       </div>
-      <div class="events-grid" id="events-grid">
-        <p style="color:var(--gray);grid-column:1/-1;padding:1rem 0">Loading events…</p>
+      <div class="watch-preview-grid" id="watch-preview-grid">
+        <p style="color:var(--gray)">Loading videos…</p>
       </div>
     </div>
   </section>
@@ -314,19 +238,19 @@
   <section class="gallery-section" id="gallery">
     <div class="container">
       <div class="gallery-header reveal">
-        <p class="section-label">Life at USPC Manchester</p>
-        <h2 class="section-title">Gallery</h2>
+        <p class="section-label" style="color:var(--orange)">Moments From Our Events</p>
+        <h2 class="section-title on-light">Gallery</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item">Church</div>
-        <div class="gallery-item">Worship</div>
-        <div class="gallery-item">Community</div>
-        <div class="gallery-item">Youth</div>
-        <div class="gallery-item">Prayer</div>
-        <div class="gallery-item">Events</div>
+        <div class="gallery-item reveal">Event 1</div>
+        <div class="gallery-item reveal">Worship</div>
+        <div class="gallery-item reveal">Community</div>
+        <div class="gallery-item reveal">Prayer</div>
+        <div class="gallery-item reveal">Praise</div>
+        <div class="gallery-item reveal">Together</div>
       </div>
       <div class="gallery-cta reveal">
-        <a href="gallery.html" class="btn btn-navy">View Full Gallery</a>
+        <a href="gallery.html" class="btn btn-dark">View Full Gallery</a>
       </div>
     </div>
   </section>
@@ -334,14 +258,26 @@
   <!-- ===== CONNECT CTA ===== -->
   <section class="connect-section">
     <div class="container">
-      <h2 class="reveal">Ready to Join Our Family?</h2>
+      <h2 class="reveal">Come and Encounter God<br />With Us This September</h2>
       <p class="reveal">
-        Whether you're new to Manchester or have been here for years — we'd love to meet you.
-        Come as you are. You belong here.
+        Whether you've been walking with God for years or are just beginning your journey —
+        there's a place for you at anavoroom.
       </p>
       <div class="connect-actions reveal">
-        <a href="contact.html" class="btn btn-gold">Get In Touch</a>
-        <a href="contact.html#prayer" class="btn btn-outline-white">Submit a Prayer Request</a>
+        <a href="events.html" class="btn btn-orange">Next Event</a>
+        <a href="contact.html" class="btn btn-outline-white">Get In Touch</a>
+      </div>
+      <div style="display:flex;justify-content:center;gap:0.75rem;margin-top:2.5rem" class="reveal">
+        <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:18px;height:18px;filter:invert(1)" />
+        </a>
+        <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="width:18px;height:18px;filter:invert(1)" />
+        </a>
+        <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:18px;height:18px;filter:invert(1)" />
+        </a>
+        <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.9rem;font-weight:700;color:var(--offwhite)">🌿</a>
       </div>
     </div>
   </section>
@@ -351,23 +287,18 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="pictures/uspc-logo.png"
-               alt="USPC Manchester" />
-          <div class="nav-logo-text">
-            USPC Manchester
-            <span>United Shalom Pentecostal Church</span>
+          <div class="footer-logo">
+            <div class="logo-mark">a</div>
+            <span class="nav-logo-text">anavoroom</span>
           </div>
-          <p>
-            A Spirit-filled, Bible-believing community in the heart of Manchester,
-            dedicated to making disciples of all nations.
-          </p>
+          <p>A Spirit-led Christian community creating spaces for encounter, worship, and community across the UK.</p>
+          <p class="charity-reg">Registered Charity &middot; A/C: 01724037 &middot; SC: 40-31-30</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="ministries.html">Ministries</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="watch.html">Watch</a></li>
@@ -375,40 +306,34 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Service Times</h4>
-          <ul>
-            <li><a href="#services">Sunday School: 9:30 – 10:00 AM</a></li>
-            <li><a href="#services">English Service: 10:15 – 11:15 AM</a></li>
-            <li><a href="#services">Malayalam Service: 11:15 AM – 1:15 PM</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>89 Floatshall Rd, Wythenshawe,<br />Manchester M23 1JB</p>
-          <br />
-          <p><a href="mailto:unitedshalomchurch@gmail.com" style="color:var(--gold)">unitedshalomchurch@gmail.com</a></p>
-          <br />
-          <div class="contact-social">
-            <a href="https://www.facebook.com/profile.php?id=100090783063581" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width:18px;height:18px;filter:invert(1)" />
-            </a>
-            <a href="https://www.youtube.com/@USPC_MCR" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
               <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:18px;height:18px;filter:invert(1)" />
             </a>
-            <a href="https://www.instagram.com/uspc_manchester" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
               <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:18px;height:18px;filter:invert(1)" />
             </a>
-            <a href="https://linktr.ee/unitedshalompentecostalchurch" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.8rem;font-weight:700;color:var(--white)">
-              🌿
-            </a>
+            <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.85rem;font-weight:700;color:var(--offwhite)">🌿</a>
           </div>
+          <p style="margin-top:1.25rem"><a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Next Event</h4>
+          <p>
+            <span style="color:var(--orange);font-weight:700;font-size:1.1rem">5 Sep 2026</span><br /><br />
+            Manchester, M22 area<br /><br />
+            <a href="contact.html" style="color:var(--orange);font-size:0.82rem">Message us for venue →</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span class="current-year"></span> United Shalom Pentecostal Church Manchester. All rights reserved.</p>
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-// ===== USPC MANCHESTER — MAIN JS =====
+// ===== ANAVOROOM — MAIN JS =====
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
   });
 
-  // Close menu on link click
   navMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mobile dropdown toggle
   document.querySelectorAll('.has-dropdown').forEach(item => {
     const link = item.querySelector('a');
     link.addEventListener('click', (e) => {
@@ -50,9 +48,36 @@ document.addEventListener('DOMContentLoaded', () => {
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
-
+    }, { threshold: 0.1 });
     reveals.forEach(el => revealObserver.observe(el));
+  }
+
+  // ----- Countdown to September 5, 2026 -----
+  const countdownEl = document.getElementById('countdown');
+  if (countdownEl) {
+    const eventDate = new Date('2026-09-05T00:00:00');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+      if (diff <= 0) {
+        countdownEl.innerHTML = '<div class="count-item"><span class="count-num" style="color:var(--orange)">Today!</span></div>';
+        return;
+      }
+      const days  = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const mins  = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const secs  = Math.floor((diff % (1000*60)) / 1000);
+      countdownEl.innerHTML = `
+        <div class="count-item"><span class="count-num">${days}</span><span class="count-label">Days</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-item"><span class="count-num">${String(hours).padStart(2,'0')}</span><span class="count-label">Hours</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-item"><span class="count-num">${String(mins).padStart(2,'0')}</span><span class="count-label">Mins</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-item"><span class="count-num">${String(secs).padStart(2,'0')}</span><span class="count-label">Secs</span></div>`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   }
 
   // ----- Form helpers -----
@@ -84,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(() => done(true)).catch(() => done(false));
   }
 
-  // ----- Contact Form -----
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -93,29 +117,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ----- Prayer Form -----
-  const prayerForm = document.getElementById('prayer-form');
-  if (prayerForm) {
-    prayerForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      netlifySubmit(prayerForm, 'Prayer Request Submitted!', 'Submit Prayer Request');
-    });
-  }
-
   // ----- YouTube Integration -----
   const YT = {
     key: 'AIzaSyB0Ih441qc5696rs_ANj_OuY4lsc0H8ZV8',
-    handle: 'USPC_MCR',
+    handle: 'anavoroom',
     _id: null,
 
     async channelId() {
       if (this._id) return this._id;
-      const cached = sessionStorage.getItem('yt_channel_id');
+      const cached = sessionStorage.getItem('yt_channel_id_anavoroom');
       if (cached) { this._id = cached; return cached; }
       const r = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=id&forHandle=${this.handle}&key=${this.key}`);
       const d = await r.json();
       this._id = d.items?.[0]?.id || null;
-      if (this._id) sessionStorage.setItem('yt_channel_id', this._id);
+      if (this._id) sessionStorage.setItem('yt_channel_id_anavoroom', this._id);
       return this._id;
     },
 
@@ -165,9 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const date = new Date(s.publishedAt).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
       if (clickToPlay) {
         return `<div class="video-card">
-          <div class="video-thumb-wrap" data-vid="${id}" style="cursor:pointer;position:relative;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000">
+          <div class="video-thumb-wrap" data-vid="${id}" style="cursor:pointer">
             <img src="${thumb}" alt="${s.title}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy" />
-            <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none">▶</div>
+            <div class="play-btn">▶</div>
           </div>
           <h3>${s.title}</h3>
           <p>${date}</p>
@@ -175,9 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       return `<div class="video-card">
         <a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">
-          <div style="position:relative;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000">
+          <div class="video-thumb-wrap">
             <img src="${thumb}" alt="${s.title}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy" />
-            <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">▶</div>
+            <div class="play-btn">▶</div>
           </div>
         </a>
         <h3>${s.title}</h3>
@@ -191,17 +206,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return `<a href="https://www.youtube.com/playlist?list=${pl.id}" target="_blank" rel="noopener" class="playlist-card">
         <div style="position:relative;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000">
           <img src="${thumb}" alt="${s.title}" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy" />
-          <div class="playlist-overlay">
-            <span>▶ Playlist</span>
-          </div>
+          <div class="playlist-overlay"><span>▶ Playlist</span></div>
         </div>
         <h3>${s.title}</h3>
-        <p>${s.description ? s.description.slice(0, 80) + (s.description.length > 80 ? '…' : '') : ''}</p>
+        <p>${s.description ? s.description.slice(0,80) + (s.description.length > 80 ? '…' : '') : ''}</p>
       </a>`;
     }
   };
 
-  // Click-to-play: swap thumbnail for iframe on click
+  // Click-to-play: swap thumbnail for iframe
   document.addEventListener('click', e => {
     const wrap = e.target.closest('[data-vid]');
     if (!wrap) return;
@@ -210,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wrap.style.position = 'relative';
   });
 
-  // Home page: live widget
+  // Home: live widget
   const liveWidget = document.getElementById('live-widget');
   if (liveWidget) {
     (async () => {
@@ -223,11 +236,27 @@ document.addEventListener('DOMContentLoaded', () => {
             `<iframe src="https://www.youtube.com/embed/${liveId}?autoplay=0" frameborder="0" allow="encrypted-media" allowfullscreen style="width:100%;height:100%;display:block"></iframe>`;
           liveWidget.style.display = 'block';
         }
-      } catch { /* silently skip if API unavailable */ }
+      } catch { /* silently skip */ }
     })();
   }
 
-  // Gallery page: latest videos
+  // Home / Gallery: latest 3 videos preview
+  const watchPreviewGrid = document.getElementById('watch-preview-grid');
+  if (watchPreviewGrid) {
+    (async () => {
+      try {
+        const cid = await YT.channelId();
+        if (!cid) throw new Error('no channel');
+        const videos = await YT.latestVideos(cid, 3);
+        if (!videos.length) throw new Error('no videos');
+        watchPreviewGrid.innerHTML = videos.map(v => YT.videoCard(v, true)).join('');
+      } catch {
+        watchPreviewGrid.innerHTML = `<p style="color:var(--gray);grid-column:1/-1">Videos unavailable. <a href="https://www.youtube.com/@anavoroom" target="_blank" style="color:var(--orange)">Watch on YouTube →</a></p>`;
+      }
+    })();
+  }
+
+  // Gallery: latest 3 videos
   const galleryVideoGrid = document.getElementById('gallery-video-grid');
   if (galleryVideoGrid) {
     (async () => {
@@ -238,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!videos.length) throw new Error('no videos');
         galleryVideoGrid.innerHTML = videos.map(v => YT.videoCard(v, true)).join('');
       } catch {
-        galleryVideoGrid.innerHTML = `<p style="color:var(--gray);grid-column:1/-1">Videos unavailable. <a href="https://www.youtube.com/@USPC_MCR" target="_blank" style="color:var(--gold)">Watch on YouTube →</a></p>`;
+        galleryVideoGrid.innerHTML = `<p style="color:var(--gray);grid-column:1/-1">Videos unavailable. <a href="https://www.youtube.com/@anavoroom" target="_blank" style="color:var(--orange)">Watch on YouTube →</a></p>`;
       }
     })();
   }
@@ -256,8 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const [liveId, videos, playlists] = await Promise.all([
           YT.liveVideoId(cid),
-          watchVideoGrid  ? YT.latestVideos(cid, 6) : Promise.resolve([]),
-          watchPlaylists  ? YT.playlists(cid, 8)    : Promise.resolve([])
+          watchVideoGrid ? YT.latestVideos(cid, 6) : Promise.resolve([]),
+          watchPlaylists ? YT.playlists(cid, 8)    : Promise.resolve([])
         ]);
 
         if (watchLiveSection) {
@@ -286,87 +315,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       } catch {
         [watchVideoGrid, watchPlaylists].forEach(el => {
-          if (el) el.innerHTML = `<p style="color:var(--gray);grid-column:1/-1">Unable to load. <a href="https://www.youtube.com/@USPC_MCR" target="_blank" style="color:var(--gold)">Visit our YouTube channel →</a></p>`;
+          if (el) el.innerHTML = `<p style="color:var(--gray);grid-column:1/-1">Unable to load. <a href="https://www.youtube.com/@anavoroom" target="_blank" style="color:var(--orange)">Visit our YouTube →</a></p>`;
         });
       }
     })();
   }
 
-  // ----- Home Page: Live Google Calendar Events -----
-  const eventsGrid = document.getElementById('events-grid');
-  if (eventsGrid) {
-    const API_KEY = 'AIzaSyB0Ih441qc5696rs_ANj_OuY4lsc0H8ZV8';
-    const CALENDAR_IDS = [
-      'unitedshalomchurch@gmail.com',
-      'k7dl1baho552adrqj6a2f853ic@group.calendar.google.com'
-    ];
-    const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  // Footer year
+  document.querySelectorAll('.current-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
 
-    function formatTime(dateStr) {
-      const d = new Date(dateStr);
-      let h = d.getHours(), m = d.getMinutes();
-      const ampm = h >= 12 ? 'PM' : 'AM';
-      h = h % 12 || 12;
-      return `${h}${m ? ':' + String(m).padStart(2, '0') : ''} ${ampm}`;
-    }
-
-    function renderEvents(events) {
-      if (!events.length) {
-        eventsGrid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1">No upcoming events at the moment. Check back soon!</p>';
-        return;
-      }
-      eventsGrid.innerHTML = events.slice(0, 3).map(ev => {
-        const start = ev.start.dateTime || ev.start.date;
-        const d = new Date(start);
-        const meta = ev.start.dateTime
-          ? `${DAYS[d.getDay()]} · ${formatTime(start)}`
-          : `${DAYS[d.getDay()]} · All day`;
-        const desc = ev.description
-          ? ev.description.replace(/<[^>]*>/g, '').trim().slice(0, 100) + (ev.description.length > 100 ? '…' : '')
-          : 'Join us for this upcoming event at USPC Manchester.';
-        return `
-          <div class="event-card reveal visible">
-            <div class="event-date">
-              <span class="month">${MONTHS[d.getMonth()]}</span>
-              <span class="day">${d.getDate()}</span>
-            </div>
-            <div class="event-info">
-              <p class="event-meta">${meta}</p>
-              <h3>${ev.summary || 'Church Event'}</h3>
-              <p>${desc}</p>
-            </div>
-          </div>`;
-      }).join('');
-    }
-
-    async function loadHomeEvents() {
-      const now = new Date().toISOString();
-      const url = id =>
-        `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(id)}/events?key=${API_KEY}&timeMin=${encodeURIComponent(now)}&maxResults=5&singleEvents=true&orderBy=startTime`;
-      try {
-        const results = await Promise.all(CALENDAR_IDS.map(id => fetch(url(id)).then(r => r.json())));
-        const seen = new Set();
-        const all = results.flatMap(r => (r.items || []).filter(ev => {
-          if (seen.has(ev.id) || ev.status === 'cancelled') return false;
-          seen.add(ev.id);
-          return true;
-        }));
-        all.sort((a, b) => new Date(a.start.dateTime || a.start.date) - new Date(b.start.dateTime || b.start.date));
-        renderEvents(all);
-      } catch {
-        eventsGrid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1">Unable to load events right now. <a href="events.html" style="color:var(--gold)">View full calendar →</a></p>';
-      }
-    }
-
-    loadHomeEvents();
-  }
-
-  // ----- Current year for footer -----
-  const yearEls = document.querySelectorAll('.current-year');
-  yearEls.forEach(el => { el.textContent = new Date().getFullYear(); });
-
-  // ----- Active nav link (single-page anchor) -----
+  // Active nav link
   const sections = document.querySelectorAll('section[id]');
   if (sections.length) {
     const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
@@ -376,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
       });
       navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--orange)' : '';
       });
     };
     window.addEventListener('scroll', activateLink, { passive: true });

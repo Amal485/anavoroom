@@ -3,104 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — USPC Manchester</title>
-  <meta name="description" content="Get in touch with United Shalom Pentecostal Church Manchester — contact details, directions, and prayer requests." />
+  <title>Contact — anavoroom</title>
+  <meta name="description" content="Get in touch with anavoroom — contact us about events, venue details, volunteering, or giving." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="pictures/uspc-logo.png" />
-  <style>
-    .contact-page { padding: 5rem 0; }
-
-    .map-placeholder {
-      width: 100%;
-      height: 420px;
-      background: linear-gradient(135deg, var(--navy), var(--purple));
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.7);
-      font-size: 3rem;
-      margin-top: 2rem;
-    }
-
-    .map-placeholder p {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
-      margin-top: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .prayer-section-page {
-      padding: 6rem 0;
-      background: var(--offwhite);
-    }
-
-    .prayer-form-container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .prayer-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .faq-section { padding: 6rem 0; }
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .faq-item {
-      padding: 1.75rem;
-      background: var(--offwhite);
-      border-radius: 8px;
-      border-left: 4px solid var(--gold);
-    }
-    .faq-item h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.6rem;
-    }
-    .faq-item p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
-
-    @media (max-width: 768px) {
-      .faq-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="pictures/uspc-logo.png" alt="USPC Manchester Logo" />
-        <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
       </a>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li class="has-dropdown"><a href="about.html">About Us</a>
+        <li class="has-dropdown">
+          <a href="about.html">About</a>
           <ul class="dropdown-menu">
-            <li><a href="about.html#history">Our History</a></li>
+            <li><a href="about.html#story">Our Story</a></li>
             <li><a href="about.html#vision">Vision &amp; Mission</a></li>
             <li><a href="about.html#leadership">Leadership</a></li>
-            <li><a href="about.html#beliefs">What We Believe</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><a href="ministries.html">Ministries</a>
-          <ul class="dropdown-menu">
-            <li><a href="ministries.html#worship">Worship</a></li>
-            <li><a href="ministries.html#youth">Youth &amp; Children</a></li>
-            <li><a href="ministries.html#women">Women's Ministry</a></li>
-            <li><a href="ministries.html#charity">Charity &amp; Giving</a></li>
-            <li><a href="ministries.html#outreach">Community Outreach</a></li>
+            <li><a href="about.html#charity">Charity</a></li>
           </ul>
         </li>
         <li><a href="events.html">Events</a></li>
@@ -108,8 +34,10 @@
         <li><a href="watch.html">Watch</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="#prayer" class="btn btn-gold nav-cta">Prayer Request</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <a href="events.html" class="btn btn-orange nav-cta">Next Event</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -117,84 +45,67 @@
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a><span>Contact</span></div>
       <h1>Get In Touch</h1>
-      <p>We'd love to hear from you. Reach out with any questions, or come and visit us in person.</p>
+      <p>We'd love to hear from you — whether it's about events, venues, volunteering, or giving.</p>
     </div>
   </div>
 
   <!-- CONTACT SECTION -->
-  <section class="contact-page" id="contact">
+  <section class="contact-section" id="contact">
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info reveal">
           <p class="section-label">Reach Out</p>
           <h2>Contact Information</h2>
           <p>
-            Whether you have a question, want to visit, or simply want to connect —
-            we'd love to hear from you. Our team is here to help.
+            Got a question about the next event? Want the venue address? Interested in
+            volunteering or getting involved? We'd love to hear from you.
           </p>
-
-          <div class="contact-detail">
-            <div class="contact-detail-icon">📍</div>
-            <div class="contact-detail-text">
-              <h4>Address</h4>
-              <p>89 Floatshall Rd, Wythenshawe,<br />Manchester M23 1JB</p>
-            </div>
-          </div>
 
           <div class="contact-detail">
             <div class="contact-detail-icon">✉️</div>
             <div class="contact-detail-text">
               <h4>Email</h4>
-              <a href="mailto:unitedshalomchurch@gmail.com">unitedshalomchurch@gmail.com</a>
+              <a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a>
             </div>
           </div>
 
           <div class="contact-detail">
-            <div class="contact-detail-icon">⏰</div>
+            <div class="contact-detail-icon">📍</div>
             <div class="contact-detail-text">
-              <h4>Service Times</h4>
-              <p>
-                Sunday School: 9:30 – 10:00 AM<br />
-                English Service: 10:15 – 11:15 AM<br />
-                Malayalam Service: 11:15 AM – 1:15 PM<br />
-                All-Night Prayer: Monthly (check calendar)
+              <h4>Next Event Location</h4>
+              <p>Manchester, M22 area — September 5, 2026<br />
+                <small style="font-size:0.8rem;color:rgba(136,132,127,0.8)">Message us for the exact venue address</small>
               </p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📅</div>
+            <div class="contact-detail-text">
+              <h4>Next Event</h4>
+              <p>Friday, 5 September 2026</p>
             </div>
           </div>
 
           <div class="contact-detail">
             <div class="contact-detail-icon">🌐</div>
             <div class="contact-detail-text">
-              <h4>USPC Network</h4>
-              <p>
-                Part of the United Shalom Pentecostal Church family.<br />
-                Visit our Liverpool church: <a href="https://uspcliverpool.com" target="_blank" rel="noopener" style="color:var(--gold)">uspcliverpool.com</a>
-              </p>
+              <h4>Social Media</h4>
+              <p>Find us on Instagram, TikTok, YouTube, and Linktree</p>
             </div>
           </div>
 
           <div class="contact-social">
-            <a href="https://www.facebook.com/profile.php?id=100090783063581" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width:18px;height:18px;filter:invert(1)" />
-            </a>
-            <a href="https://www.youtube.com/@USPC_MCR" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+            <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
               <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:18px;height:18px;filter:invert(1)" />
             </a>
-            <a href="https://www.instagram.com/uspc_manchester" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
               <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:18px;height:18px;filter:invert(1)" />
             </a>
-            <a href="https://linktr.ee/unitedshalompentecostalchurch" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.8rem;font-weight:700;color:var(--white)">
-              🌿
-            </a>
-          </div>
-
-          <div style="margin-top:2rem;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.12)">
-            <iframe
-              src="https://maps.google.com/maps?q=89+Floatshall+Rd,+Wythenshawe,+Manchester+M23+1JB,+UK&output=embed&z=15"
-              width="100%" height="380" style="border:0;display:block;"
-              allowfullscreen loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="USPC Manchester location map"></iframe>
+            <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.85rem;font-weight:700;color:var(--offwhite)">🌿</a>
           </div>
         </div>
 
@@ -205,94 +116,80 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" placeholder="John" required />
+                <input type="text" id="first-name" name="first-name" placeholder="Your first name" required />
               </div>
               <div class="form-group">
                 <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="last-name" placeholder="Smith" required />
+                <input type="text" id="last-name" name="last-name" placeholder="Your last name" required />
               </div>
             </div>
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
             </div>
             <div class="form-group">
-              <label for="phone">Phone Number (optional)</label>
-              <input type="tel" id="phone" name="phone" placeholder="+44 7000 000000" />
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
+              <label for="subject">What's this about?</label>
               <select id="subject" name="subject">
                 <option value="">Select a subject…</option>
+                <option>Event Venue Details</option>
+                <option>Volunteering</option>
+                <option>Prayer Request</option>
+                <option>Giving / Charity</option>
                 <option>General Enquiry</option>
-                <option>Planning a Visit</option>
-                <option>Joining the Church</option>
-                <option>Ministries</option>
-                <option>Events</option>
                 <option>Other</option>
               </select>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+              <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
             </div>
-            <button type="submit" class="btn btn-gold" style="width:100%">Send Message</button>
+            <button type="submit" class="btn btn-orange" style="width:100%">Send Message</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRAYER REQUEST -->
-  <section class="prayer-section-page" id="prayer">
+  <!-- GIVE / SUPPORT -->
+  <section class="give-section" id="give">
     <div class="container">
-      <div class="prayer-form-container">
-        <div class="prayer-header reveal">
-          <p class="section-label">We Are Praying For You</p>
-          <h2 class="section-title">Submit a Prayer Request</h2>
-          <p class="section-subtitle" style="margin:1rem auto 0">
-            We believe in the power of prayer. Share your request with us and our prayer team
-            will intercede on your behalf. Your request will be kept in confidence.
+      <div class="charity-grid">
+        <div class="reveal">
+          <p class="section-label">Support the Mission</p>
+          <h2 class="section-title" style="margin-bottom:1.5rem">Give to anavoroom</h2>
+          <p style="margin-bottom:1.25rem">
+            anavoroom is a registered charity. Every penny given goes directly towards producing
+            life-changing events, serving our community, and spreading the gospel of Jesus Christ.
           </p>
+          <p style="margin-bottom:2rem">
+            To donate via bank transfer, use the details on the right. To discuss other ways
+            to give or get involved, please email us.
+          </p>
+          <a href="mailto:anavoroom@gmail.com" class="btn btn-orange">Email Us About Giving</a>
         </div>
-        <form id="prayer-form" name="prayer" data-netlify="true" class="reveal">
-          <input type="hidden" name="form-name" value="prayer" />
-          <div class="form-row">
-            <div class="form-group">
-              <label for="prayer-name">Your Name</label>
-              <input type="text" id="prayer-name" name="name" placeholder="Your name" />
-            </div>
-            <div class="form-group">
-              <label for="prayer-email">Email (optional)</label>
-              <input type="email" id="prayer-email" name="email" placeholder="your@email.com" />
+
+        <div class="charity-details reveal">
+          <div class="charity-detail-item">
+            <div class="cd-icon">🏦</div>
+            <div>
+              <h4>Account Number</h4>
+              <p>01724037</p>
             </div>
           </div>
-          <div class="form-group">
-            <label for="prayer-type">Prayer Category</label>
-            <select id="prayer-type" name="category">
-              <option value="">Select category…</option>
-              <option>Health &amp; Healing</option>
-              <option>Family</option>
-              <option>Finances</option>
-              <option>Relationships</option>
-              <option>Salvation</option>
-              <option>Work &amp; Career</option>
-              <option>Spiritual Growth</option>
-              <option>Other</option>
-            </select>
+          <div class="charity-detail-item">
+            <div class="cd-icon">🔢</div>
+            <div>
+              <h4>Sort Code</h4>
+              <p>40 — 31 — 30</p>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="prayer-request">Your Prayer Request</label>
-            <textarea id="prayer-request" name="request" placeholder="Share your prayer request here…" style="min-height:160px" required></textarea>
+          <div style="padding:1.25rem;background:rgba(255,128,80,0.07);border:1px solid rgba(255,128,80,0.18);border-radius:8px">
+            <p style="font-size:0.82rem;color:var(--gray);line-height:1.7">
+              Please include your name as the payment reference.<br />
+              For Gift Aid enquiries, email <a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a>.
+            </p>
           </div>
-          <div class="form-group" style="display:flex;align-items:flex-start;gap:0.75rem">
-            <input type="checkbox" id="anonymous" name="anonymous" style="width:auto;margin-top:3px" />
-            <label for="anonymous" style="text-transform:none;font-weight:400;font-size:0.88rem;color:var(--gray)">
-              Keep my request anonymous (your name will not be shared with the congregation)
-            </label>
-          </div>
-          <button type="submit" class="btn btn-navy" style="width:100%">Submit Prayer Request</button>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -301,46 +198,47 @@
   <section class="faq-section">
     <div class="container">
       <div class="reveal" style="text-align:center">
-        <p class="section-label">Frequently Asked Questions</p>
-        <h2 class="section-title">Planning Your First Visit?</h2>
-        <p class="section-subtitle" style="margin:1rem auto 0">Here are some answers to common questions about visiting USPC Manchester.</p>
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Common Questions</h2>
+        <p class="section-subtitle" style="margin:1rem auto 0">Everything you need to know about anavoroom.</p>
       </div>
-      <div class="faq-grid">
+      <div class="faq-grid" style="margin-top:3rem">
         <div class="faq-item reveal">
-          <h3>What should I wear?</h3>
-          <p>Come as you are! There is no dress code at USPC Manchester. We want you to feel comfortable and welcome from the moment you arrive.</p>
+          <h3>What kind of events does anavoroom organise?</h3>
+          <p>We host large-scale Christian events including worship nights, prayer gatherings, and community conferences. Every event is designed to create space for people to encounter the living God.</p>
         </div>
         <div class="faq-item reveal">
-          <h3>How long is the Sunday service?</h3>
-          <p>Sunday School runs 9:30–10:00 AM. The English Service follows from 10:15–11:15 AM, then the Malayalam Service from 11:15 AM–1:15 PM. Feel free to join for any or all of these.</p>
+          <h3>How do I find out the venue address?</h3>
+          <p>We share venue details directly — just message us on Instagram (@anavoroom), email anavoroom@gmail.com, or fill in the contact form on this page and we'll send you everything you need.</p>
         </div>
         <div class="faq-item reveal">
-          <h3>Is there childcare available?</h3>
-          <p>Yes! We have a dedicated children's programme running during the Sunday service, so children are well cared for while parents worship.</p>
+          <h3>Is there a cost to attend?</h3>
+          <p>Details about tickets or admission will be shared via our social media and Linktree closer to each event. Follow us on Instagram and subscribe on YouTube to stay updated.</p>
         </div>
         <div class="faq-item reveal">
-          <h3>Do I need to be a Christian to attend?</h3>
-          <p>Not at all. Everyone is welcome, regardless of where you are on your spiritual journey. Come as you are — we'd love to meet you.</p>
+          <h3>How can I support anavoroom financially?</h3>
+          <p>We are a registered charity and welcome donations via bank transfer. See the "Give" section above for account details. You can also contact us to discuss other ways to support the mission.</p>
         </div>
         <div class="faq-item reveal">
-          <h3>Is parking available?</h3>
-          <p>We are located at 89 Floatshall Rd, Wythenshawe, Manchester M23 1JB. Street parking is available nearby. Use the map on this page for directions.</p>
+          <h3>Can I volunteer or get involved?</h3>
+          <p>Absolutely — we'd love to have you. Send us an email or fill in the contact form letting us know how you'd like to serve and we'll be in touch.</p>
         </div>
         <div class="faq-item reveal">
-          <h3>How can I get involved?</h3>
-          <p>We'd love for you to get involved! Whether it's worship, youth, outreach, or prayer — there's a ministry for everyone. Speak to us after service or contact us online.</p>
+          <h3>Do I need to be a Christian to come?</h3>
+          <p>Not at all. Everyone is welcome at an anavoroom event, regardless of where you are on your spiritual journey. Come as you are — there's room for you here.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CONNECT CTA -->
   <section class="connect-section">
     <div class="container">
-      <h2 class="reveal">We Can't Wait to Meet You</h2>
-      <p class="reveal">Join us this Sunday and experience the warmth of our church family for yourself.</p>
+      <h2 class="reveal">We Can't Wait to Connect</h2>
+      <p class="reveal">Whether you're coming to the next event, want to volunteer, or simply want to know more — reach out. We'd love to hear from you.</p>
       <div class="connect-actions reveal">
-        <a href="index.html#services" class="btn btn-gold">Service Times</a>
-        <a href="about.html" class="btn btn-outline-white">Learn About Us</a>
+        <a href="events.html" class="btn btn-orange">See Next Event</a>
+        <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="btn btn-outline-white">DM on Instagram</a>
       </div>
     </div>
   </section>
@@ -349,31 +247,52 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="pictures/uspc-logo.png" alt="USPC Manchester" />
-          <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
-          <p>A Spirit-filled, Bible-believing community in the heart of Manchester.</p>
+          <div class="footer-logo">
+            <div class="logo-mark">a</div>
+            <span class="nav-logo-text">anavoroom</span>
+          </div>
+          <p>A Spirit-led Christian community creating spaces for encounter, worship, and community across the UK.</p>
+          <p class="charity-reg">Registered Charity &middot; A/C: 01724037 &middot; SC: 40-31-30</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
-          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="ministries.html">Ministries</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="watch.html">Watch</a></li><li><a href="contact.html">Contact</a></li></ul>
-        </div>
-        <div class="footer-col">
-          <h4>Service Times</h4>
           <ul>
-            <li><a href="index.html#services">Sunday School: 9:30 – 10:00 AM</a></li>
-            <li><a href="index.html#services">English Service: 10:15 – 11:15 AM</a></li>
-            <li><a href="index.html#services">Malayalam Service: 11:15 AM – 1:15 PM</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="watch.html">Watch</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>89 Floatshall Rd, Wythenshawe,<br />Manchester M23 1JB</p><br />
-          <p><a href="mailto:unitedshalomchurch@gmail.com" style="color:var(--gold)">unitedshalomchurch@gmail.com</a></p>
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.85rem;font-weight:700;color:var(--offwhite)">🌿</a>
+          </div>
+          <p style="margin-top:1.25rem"><a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Next Event</h4>
+          <p>
+            <span style="color:var(--orange);font-weight:700;font-size:1.1rem">5 Sep 2026</span><br /><br />
+            Manchester, M22 area<br /><br />
+            <a href="contact.html" style="color:var(--orange);font-size:0.82rem">Message us for venue →</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span class="current-year"></span> United Shalom Pentecostal Church Manchester. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy Policy</a></div>
       </div>
     </div>
   </footer>

@@ -3,118 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — USPC Manchester</title>
-  <meta name="description" content="Learn about United Shalom Pentecostal Church Manchester — our history, vision, mission, leadership, and what we believe." />
+  <title>About — anavoroom</title>
+  <meta name="description" content="Learn about anavoroom — our story, vision, leadership team, and how we serve as a registered UK charity." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="pictures/uspc-logo.png" />
-  <style>
-    .beliefs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .belief-card {
-      border-left: 4px solid var(--gold);
-      padding: 1.5rem 1.5rem 1.5rem 2rem;
-      background: var(--offwhite);
-      border-radius: 0 8px 8px 0;
-    }
-    .belief-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-    .belief-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
-
-    .vision-mission {
-      background: var(--navy);
-      padding: 5rem 0;
-    }
-    .vm-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-    .vm-card {
-      padding: 2.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-    }
-    .vm-card h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
-    .vm-card p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.75; }
-    .vm-card .section-label { margin-bottom: 0.5rem; }
-
-    .leadership-section { padding: 6rem 0; }
-    .leadership-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .leader-card {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      background: var(--navy);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .leader-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(212,168,67,0.12); }
-    .leader-avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 0 auto 1.25rem;
-      display: block;
-      object-fit: cover;
-      object-position: top center;
-      border: 4px solid var(--gold);
-      background: linear-gradient(135deg, var(--navy), var(--purple));
-    }
-    .leader-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); }
-    .leader-card p { font-size: 0.82rem; color: var(--gold); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
-
-    @media (max-width: 640px) {
-      .vm-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="pictures/uspc-logo.png" alt="USPC Manchester Logo" />
-        <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
       </a>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li class="has-dropdown"><a href="about.html">About Us</a>
+        <li class="has-dropdown">
+          <a href="about.html">About</a>
           <ul class="dropdown-menu">
-            <li><a href="#history">Our History</a></li>
+            <li><a href="#story">Our Story</a></li>
             <li><a href="#vision">Vision &amp; Mission</a></li>
             <li><a href="#leadership">Leadership</a></li>
-            <li><a href="#beliefs">What We Believe</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><a href="ministries.html">Ministries</a>
-          <ul class="dropdown-menu">
-            <li><a href="ministries.html#worship">Worship</a></li>
-            <li><a href="ministries.html#youth">Youth &amp; Children</a></li>
-            <li><a href="ministries.html#women">Women's Ministry</a></li>
-            <li><a href="ministries.html#charity">Charity &amp; Giving</a></li>
-            <li><a href="ministries.html#outreach">Community Outreach</a></li>
+            <li><a href="#charity">Charity</a></li>
           </ul>
         </li>
         <li><a href="events.html">Events</a></li>
@@ -122,75 +34,121 @@
         <li><a href="watch.html">Watch</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="contact.html#prayer" class="btn btn-gold nav-cta">Prayer Request</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <a href="events.html" class="btn btn-orange nav-cta">Next Event</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- PAGE BANNER -->
   <div class="page-banner">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a><span>About Us</span></div>
-      <h1>About Us</h1>
-      <p>Discover who we are, what we believe, and the community God has called us to build in Manchester.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a><span>About</span></div>
+      <h1>About anavoroom</h1>
+      <p>Who we are, what we believe, and why we exist.</p>
     </div>
   </div>
 
-  <!-- HISTORY -->
-  <section style="padding: 6rem 0;" id="history">
+  <!-- OUR STORY -->
+  <section class="about-story-section" id="story">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-content reveal">
+      <div class="about-story-grid">
+        <div class="about-story-sticky reveal">
           <p class="section-label">Our Story</p>
-          <h2 class="section-title">Our History</h2>
+          <h2>Born Out of a Passion for God's Presence</h2>
           <p>
-            United Shalom Pentecostal Church Manchester was founded by a group of faithful believers
-            who carried the same vision and passion as the wider USPC family — to see lives transformed
-            by the power of the Holy Spirit in cities across the United Kingdom.
+            anavoroom was born out of a simple but powerful conviction: that when God's people
+            gather with purpose, something extraordinary happens. We are not a building —
+            we are a community.
           </p>
           <p>
-            What began as a small gathering has grown into a vibrant, multicultural congregation in the
-            heart of Manchester. God has been faithful in every season, and we continue to stand on His
-            promises as we grow and reach out to our community.
+            What started as a vision to create space for people to encounter God has grown into
+            a movement of worship, prayer, and community events that draw people together from
+            across the region.
           </p>
           <p>
-            As part of the United Shalom Pentecostal Church network, we share the same values, doctrine,
-            and mission that have shaped USPC churches across the country — rooted in Scripture, powered
-            by the Spirit, and moved by love.
+            We believe the Church is never more powerful than when it is gathered and unified.
+            Every event we host is a statement of that belief — that the presence of God is
+            the greatest thing we can offer any room.
           </p>
-          <a href="contact.html" class="btn btn-gold" style="margin-top:1rem">Come Visit Us</a>
         </div>
-        <div class="about-image reveal" style="display:block">
-          <div class="about-image-placeholder" style="height:420px">Church Photo</div>
+
+        <div class="values-grid reveal">
+          <div class="value-card">
+            <div class="v-icon">✨</div>
+            <h3>Encounter</h3>
+            <p>We don't want to put on events — we want to create encounters. Every gathering is designed to bring people into the presence of God.</p>
+          </div>
+          <div class="value-card">
+            <div class="v-icon">🤝</div>
+            <h3>Unity</h3>
+            <p>We believe in the power of diverse communities coming together under one name. Walls come down when we gather as one.</p>
+          </div>
+          <div class="value-card">
+            <div class="v-icon">🎵</div>
+            <h3>Worship</h3>
+            <p>Praise and worship are not warm-ups — they are the main event. Anointed music is at the heart of everything we do.</p>
+          </div>
+          <div class="value-card">
+            <div class="v-icon">🌍</div>
+            <h3>Service</h3>
+            <p>We are called to give, serve, and love beyond our walls. As a registered charity, serving our community is central to who we are.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- VISION & MISSION -->
-  <section class="vision-mission" id="vision">
+  <section style="padding:7rem 0;background:var(--charcoal-md)" id="vision">
     <div class="container">
-      <div style="text-align:center;margin-bottom:3rem" class="reveal">
-        <p class="section-label">Our Purpose</p>
-        <h2 class="section-title light">Vision &amp; Mission</h2>
+      <div style="max-width:700px;margin:0 auto;text-align:center" class="reveal">
+        <p class="section-label">Vision &amp; Mission</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem">Why We Exist</h2>
       </div>
-      <div class="vm-grid reveal">
-        <div class="vm-card">
-          <p class="section-label">Our Vision</p>
-          <h2>To see Manchester transformed by the Gospel of Jesus Christ.</h2>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:900px;margin:3rem auto 0">
+        <div class="vision-box reveal">
+          <h4>Our Vision</h4>
           <p>
-            We envision a city where the love of God is felt in every neighbourhood, every family,
-            and every heart. A Manchester where people know they are known, loved, and valued by God.
+            To create spaces where every person — regardless of background — can encounter
+            the love and power of God through community, worship, and the Word.
           </p>
         </div>
-        <div class="vm-card">
-          <p class="section-label">Our Mission</p>
-          <h2>To share God's love, strengthen faith, and build a united community.</h2>
+        <div class="vision-box reveal" style="border-left-color:rgba(234,230,225,0.3)">
+          <h4 style="color:rgba(234,230,225,0.6)">Our Mission</h4>
           <p>
-            Through worship, discipleship, fellowship, and outreach, we are committed to making
-            disciples of all nations — starting right here in Manchester — baptising them in the
-            name of the Father, Son, and Holy Spirit.
+            We host large-scale Christian events, cultivate authentic community, and serve
+            those around us with the love of Christ — because we believe the world changes
+            when God shows up.
           </p>
+        </div>
+      </div>
+
+      <div style="margin-top:5rem;text-align:center" class="reveal">
+        <p class="section-label">What We Believe</p>
+        <h2 class="section-title" style="margin-bottom:3rem">Our Faith</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;text-align:left;max-width:960px;margin:0 auto">
+          <div style="padding:1.75rem;background:var(--charcoal-lt);border:1px solid var(--border);border-radius:8px">
+            <div style="font-size:1.5rem;margin-bottom:0.75rem">📖</div>
+            <h4 style="color:var(--offwhite);font-size:0.95rem;margin-bottom:0.5rem">The Bible</h4>
+            <p style="font-size:0.85rem">We believe the Bible is the inspired and authoritative Word of God — our foundation for faith and life.</p>
+          </div>
+          <div style="padding:1.75rem;background:var(--charcoal-lt);border:1px solid var(--border);border-radius:8px">
+            <div style="font-size:1.5rem;margin-bottom:0.75rem">✝️</div>
+            <h4 style="color:var(--offwhite);font-size:0.95rem;margin-bottom:0.5rem">Salvation</h4>
+            <p style="font-size:0.85rem">We believe in salvation through faith in Jesus Christ — his death, resurrection, and lordship over all.</p>
+          </div>
+          <div style="padding:1.75rem;background:var(--charcoal-lt);border:1px solid var(--border);border-radius:8px">
+            <div style="font-size:1.5rem;margin-bottom:0.75rem">🕊️</div>
+            <h4 style="color:var(--offwhite);font-size:0.95rem;margin-bottom:0.5rem">The Holy Spirit</h4>
+            <p style="font-size:0.85rem">We are a Spirit-filled community. We believe in the ongoing gifts and power of the Holy Spirit for today.</p>
+          </div>
+          <div style="padding:1.75rem;background:var(--charcoal-lt);border:1px solid var(--border);border-radius:8px">
+            <div style="font-size:1.5rem;margin-bottom:0.75rem">🙏</div>
+            <h4 style="color:var(--offwhite);font-size:0.95rem;margin-bottom:0.5rem">Prayer</h4>
+            <p style="font-size:0.85rem">Prayer is our lifeline. We believe in the power of corporate and personal prayer to move mountains.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -199,120 +157,131 @@
   <!-- LEADERSHIP -->
   <section class="leadership-section" id="leadership">
     <div class="container">
-      <div class="reveal" style="text-align:center">
-        <p class="section-label">Meet the Team</p>
-        <h2 class="section-title">Our Leadership</h2>
-        <p class="section-subtitle" style="margin:0 auto">
-          Our leaders are called, equipped, and passionate about serving God and the Manchester community.
+      <div style="text-align:center" class="reveal">
+        <p class="section-label">The Team</p>
+        <h2 class="section-title on-light">Meet Our Leadership</h2>
+        <p class="section-subtitle on-light" style="margin:1rem auto 0">
+          The people behind anavoroom — passionate about the presence of God and the people He loves.
         </p>
       </div>
+
       <div class="leadership-grid">
         <div class="leader-card reveal">
-          <img class="leader-avatar"
-               src="pictures/leadership/Aidapi.jpeg"
-               alt="Aidapi — Senior Pastor" />
-          <h3>Aidapi</h3>
-          <p>Senior Pastor</p>
+          <img src="pictures/leadership/Aidapi.jpeg" alt="Aidapi" class="leader-photo" />
+          <div class="leader-info">
+            <h3>Aidapi</h3>
+            <p>Senior Pastor</p>
+          </div>
         </div>
         <div class="leader-card reveal">
-          <img class="leader-avatar"
-               src="pictures/leadership/Joshi.jpeg"
-               alt="Joshi — Associate Pastor" />
-          <h3>Joshi</h3>
-          <p>Associate Pastor</p>
+          <img src="pictures/leadership/Joel Toni.jpeg" alt="Joel Toni" class="leader-photo" />
+          <div class="leader-info">
+            <h3>Joel Toni</h3>
+            <p>Youth Pastor</p>
+          </div>
         </div>
         <div class="leader-card reveal">
-          <img class="leader-avatar"
-               src="pictures/leadership/Joel%20Toni.jpeg"
-               alt="Joel Toni — Youth Pastor" />
-          <h3>Joel Toni</h3>
-          <p>Youth Pastor</p>
+          <img src="pictures/leadership/Joshi.jpeg" alt="Yoshi" class="leader-photo" />
+          <div class="leader-info">
+            <h3>Yoshi</h3>
+            <p>Associate Pastor</p>
+          </div>
         </div>
         <div class="leader-card reveal">
-          <img class="leader-avatar"
-               src="pictures/leadership/SWagon.jpeg"
-               alt="SWagon — Worship Leader" />
-          <h3>SWagon</h3>
-          <p>Worship Leader</p>
+          <img src="pictures/leadership/SWagon.jpeg" alt="SWagon" class="leader-photo" />
+          <div class="leader-info">
+            <h3>SWagon</h3>
+            <p>Worship Leader</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT WE BELIEVE -->
-  <section style="padding: 6rem 0; background: var(--offwhite);" id="beliefs">
+  <!-- CHARITY -->
+  <section class="charity-section" id="charity">
     <div class="container">
-      <div class="reveal" style="text-align:center;margin-bottom:1rem">
-        <p class="section-label">Our Doctrine</p>
-        <h2 class="section-title">What We Believe</h2>
-        <p class="section-subtitle" style="margin:0 auto">
-          We are a Pentecostal church rooted in the authority of Scripture and the full gospel of Jesus Christ.
-        </p>
-      </div>
-      <div class="beliefs-grid">
-        <div class="belief-card reveal">
-          <h3>The Holy Scriptures</h3>
-          <p>We believe the Bible is the inspired, infallible Word of God, our supreme guide in all matters of faith and conduct.</p>
+      <div class="charity-grid">
+        <div class="reveal">
+          <p class="section-label">Registered Charity</p>
+          <h2 class="section-title" style="margin-bottom:1.5rem">Support the Mission</h2>
+          <p style="margin-bottom:1.25rem">
+            anavoroom is a registered UK charity. Everything we do — every event, every act of
+            service — is funded by the generous giving of people who believe in what God is doing
+            through this community.
+          </p>
+          <p style="margin-bottom:1.25rem">
+            Your support enables us to continue hosting life-changing events, reach more people
+            with the gospel, and serve our communities with the love of Christ.
+          </p>
+          <p style="margin-bottom:2rem">
+            To give via bank transfer, use the account details shown here. Every gift makes a
+            difference — thank you for your generosity.
+          </p>
+          <a href="contact.html" class="btn btn-orange">Get in Touch</a>
         </div>
-        <div class="belief-card reveal">
-          <h3>The Trinity</h3>
-          <p>We believe in one God, eternally existing in three persons: Father, Son, and Holy Spirit.</p>
-        </div>
-        <div class="belief-card reveal">
-          <h3>Salvation</h3>
-          <p>We believe in salvation through repentance and faith in Jesus Christ, who died for our sins and rose again.</p>
-        </div>
-        <div class="belief-card reveal">
-          <h3>Water Baptism</h3>
-          <p>We believe in water baptism by immersion as a public declaration of faith in Jesus Christ.</p>
-        </div>
-        <div class="belief-card reveal">
-          <h3>Baptism of the Holy Spirit</h3>
-          <p>We believe in the baptism of the Holy Spirit with the evidence of speaking in other tongues, as on the Day of Pentecost.</p>
-        </div>
-        <div class="belief-card reveal">
-          <h3>Divine Healing</h3>
-          <p>We believe in healing for spirit, soul, and body through faith in Jesus Christ, who bore our sicknesses.</p>
-        </div>
-        <div class="belief-card reveal">
-          <h3>The Second Coming</h3>
-          <p>We believe in the literal, physical return of Jesus Christ to establish His kingdom on earth.</p>
-        </div>
-        <div class="belief-card reveal">
-          <h3>The Church</h3>
-          <p>We believe the church is the body of Christ, called to worship God and make disciples of all nations.</p>
+
+        <div class="charity-details reveal">
+          <div class="charity-detail-item">
+            <div class="cd-icon">🏦</div>
+            <div>
+              <h4>Account Number</h4>
+              <p>01724037</p>
+            </div>
+          </div>
+          <div class="charity-detail-item">
+            <div class="cd-icon">🔢</div>
+            <div>
+              <h4>Sort Code</h4>
+              <p>40 — 31 — 30</p>
+            </div>
+          </div>
+          <div class="charity-detail-item">
+            <div class="cd-icon">✉️</div>
+            <div>
+              <h4>Contact</h4>
+              <p style="font-size:0.9rem"><a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a></p>
+            </div>
+          </div>
+          <div style="padding:1.25rem;background:rgba(255,128,80,0.07);border:1px solid rgba(255,128,80,0.2);border-radius:8px">
+            <p style="font-size:0.82rem;color:var(--gray);line-height:1.65">
+              Please use your name as the payment reference so we can acknowledge your gift.
+              For Gift Aid enquiries, contact us by email.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CONNECT CTA -->
   <section class="connect-section">
     <div class="container">
-      <h2 class="reveal">Come and Experience It For Yourself</h2>
-      <p class="reveal">We'd love to welcome you to our church family. Join us this Sunday.</p>
+      <h2 class="reveal">Want to Be Part of What God Is Doing?</h2>
+      <p class="reveal">Come to the next event. Connect with us online. Get in touch. We'd love to meet you.</p>
       <div class="connect-actions reveal">
-        <a href="index.html#services" class="btn btn-gold">Service Times</a>
-        <a href="contact.html" class="btn btn-outline-white">Get In Touch</a>
+        <a href="events.html" class="btn btn-orange">See Next Event</a>
+        <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="pictures/uspc-logo.png" alt="USPC Manchester" />
-          <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
-          <p>A Spirit-filled, Bible-believing community in the heart of Manchester.</p>
+          <div class="footer-logo">
+            <div class="logo-mark">a</div>
+            <span class="nav-logo-text">anavoroom</span>
+          </div>
+          <p>A Spirit-led Christian community creating spaces for encounter, worship, and community across the UK.</p>
+          <p class="charity-reg">Registered Charity &middot; A/C: 01724037 &middot; SC: 40-31-30</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="ministries.html">Ministries</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="watch.html">Watch</a></li>
@@ -320,23 +289,33 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Service Times</h4>
-          <ul>
-            <li><a href="index.html#services">Sunday School: 9:30 – 10:00 AM</a></li>
-            <li><a href="index.html#services">English Service: 10:15 – 11:15 AM</a></li>
-            <li><a href="index.html#services">Malayalam Service: 11:15 AM – 1:15 PM</a></li>
-          </ul>
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.85rem;font-weight:700;color:var(--offwhite)">🌿</a>
+          </div>
+          <p style="margin-top:1.25rem"><a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a></p>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>89 Floatshall Rd, Wythenshawe,<br />Manchester M23 1JB</p>
-          <br />
-          <p><a href="mailto:unitedshalomchurch@gmail.com" style="color:var(--gold)">unitedshalomchurch@gmail.com</a></p>
+          <h4>Next Event</h4>
+          <p>
+            <span style="color:var(--orange);font-weight:700;font-size:1.1rem">5 Sep 2026</span><br /><br />
+            Manchester, M22 area<br /><br />
+            <a href="contact.html" style="color:var(--orange);font-size:0.82rem">Message us for venue →</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span class="current-year"></span> United Shalom Pentecostal Church Manchester. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy Policy</a></div>
       </div>
     </div>
   </footer>

@@ -3,95 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Events — USPC Manchester</title>
-  <meta name="description" content="Upcoming events at United Shalom Pentecostal Church Manchester — services, prayer nights, conferences, and community events." />
+  <title>Events — anavoroom</title>
+  <meta name="description" content="anavoroom events — next event 5 September 2026, Manchester. A night of worship, prayer and encounter." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="pictures/uspc-logo.png" />
   <style>
-    .events-page { padding: 5rem 0 7rem; }
-    .events-page-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .event-card-full {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 1.5rem;
-      align-items: center;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem 2rem;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .event-card-full:hover {
-      border-color: var(--gold);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-    }
-    .event-card-full .event-date {
-      min-width: 70px;
-    }
-    .event-card-full .event-info h3 { font-size: 1.1rem; }
-    .event-tag {
-      display: inline-block;
-      padding: 0.3rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .event-tag.regular { background: rgba(212,168,67,0.12); color: var(--gold); }
-    .event-tag.special { background: rgba(212,168,67,0.15); color: var(--gold); }
-    .event-tag.prayer  { background: rgba(255,255,255,0.06); color: var(--gray); }
-
-    .events-filter {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      padding: 0.5rem 1.25rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      background: var(--navy);
-      color: var(--gray);
-      transition: all 0.2s ease;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--gold);
-      color: var(--dark);
-      border-color: var(--gold);
-    }
-
-    .month-heading {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin: 2.5rem 0 1.25rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    @media (max-width: 640px) {
-      .event-card-full {
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto auto;
-      }
-      .event-card-full > a { grid-column: 2; }
-    }
+    .events-page-wrap { padding: 5rem 0 7rem; }
   </style>
 </head>
 <body>
@@ -99,26 +18,18 @@
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="pictures/uspc-logo.png" alt="USPC Manchester Logo" />
-        <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
       </a>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li class="has-dropdown"><a href="about.html">About Us</a>
+        <li class="has-dropdown">
+          <a href="about.html">About</a>
           <ul class="dropdown-menu">
-            <li><a href="about.html#history">Our History</a></li>
+            <li><a href="about.html#story">Our Story</a></li>
             <li><a href="about.html#vision">Vision &amp; Mission</a></li>
             <li><a href="about.html#leadership">Leadership</a></li>
-            <li><a href="about.html#beliefs">What We Believe</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><a href="ministries.html">Ministries</a>
-          <ul class="dropdown-menu">
-            <li><a href="ministries.html#worship">Worship</a></li>
-            <li><a href="ministries.html#youth">Youth &amp; Children</a></li>
-            <li><a href="ministries.html#women">Women's Ministry</a></li>
-            <li><a href="ministries.html#charity">Charity &amp; Giving</a></li>
-            <li><a href="ministries.html#outreach">Community Outreach</a></li>
+            <li><a href="about.html#charity">Charity</a></li>
           </ul>
         </li>
         <li><a href="events.html">Events</a></li>
@@ -126,165 +37,183 @@
         <li><a href="watch.html">Watch</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="contact.html#prayer" class="btn btn-gold nav-cta">Prayer Request</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <a href="events.html" class="btn btn-orange nav-cta">Next Event</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
+  <!-- PAGE BANNER -->
   <div class="page-banner">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a><span>Events</span></div>
-      <h1>Upcoming Events</h1>
-      <p>Stay connected with what's happening at USPC Manchester — services, prayer nights, and special events.</p>
+      <h1>Events</h1>
+      <p>Large-scale gatherings where the presence of God changes the atmosphere.</p>
     </div>
   </div>
 
-  <section class="events-page">
+  <!-- NEXT EVENT HERO -->
+  <section class="next-event-hero">
     <div class="container">
-
-      <!-- Regular weekly services info strip -->
-      <div style="background:var(--offwhite);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:1.25rem 1.75rem;margin-bottom:3rem" class="reveal">
-        <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem">Every Sunday</p>
-        <p style="color:var(--white);font-weight:600;font-size:0.95rem">
-          Sunday School 9:30–10:00 AM &nbsp;·&nbsp; English Service 10:15–11:15 AM &nbsp;·&nbsp; Malayalam Service 11:15 AM–1:15 PM
-        </p>
-        <p style="color:var(--gray);font-size:0.85rem;margin-top:0.4rem">89 Floatshall Rd, Wythenshawe, Manchester M23 1JB</p>
+      <div class="reveal">
+        <span class="next-event-label">Next Event</span>
+        <span class="next-event-date"><em>5</em> September</span>
+        <span class="next-event-year">2026 &mdash; Manchester</span>
+        <div class="hero-actions" style="margin-top:1.5rem">
+          <a href="contact.html" class="btn btn-orange">Get Venue Details</a>
+          <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="btn btn-outline-white">Follow for Updates</a>
+        </div>
       </div>
-
-      <!-- Google Calendar embed -->
-      <div class="reveal" style="margin-bottom:2rem">
-        <p class="section-label">Church Calendar</p>
-        <h2 class="section-title" style="margin-bottom:1.5rem">Upcoming Events</h2>
-        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1);border:1px solid var(--border)">
-          <iframe
-            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FLondon&showPrint=0&title=USPC%20MCR&showCalendars=0&src=dW5pdGVkc2hhbG9tY2h1cmNoQGdtYWlsLmNvbQ&src=azdkbDFiYWhvNTUyYWRycWo2YTJmODUzaWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23039be5&color=%233f51b5"
-            style="border:0;display:block;width:100%;min-height:600px;"
-            frameborder="0"
-            scrolling="no"
-            title="USPC Manchester Church Calendar"></iframe>
-        </div>
-        <p style="font-size:0.78rem;color:var(--gray);margin-top:0.75rem;text-align:center">
-          Can't see the calendar? Make sure the church Google Calendar (<a href="mailto:unitedshalomchurch@gmail.com" style="color:var(--gold)">unitedshalomchurch@gmail.com</a>) is set to <strong>public</strong> in Google Calendar settings.
-        </p>
-      </div>
-
-      <div class="events-page-grid" style="display:none"><!-- legacy static cards kept for reference -->
-
-        <p class="month-heading">July 2026</p>
-
-        <div class="event-card-full reveal">
-          <div class="event-date">
-            <span class="month">Jul</span>
-            <span class="day">5</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag regular">Service</span>
-            <h3>Sunday Worship Service</h3>
-            <p class="event-meta">Sunday · 10:30 AM – 1:00 PM</p>
-            <p>Join us for our weekly Sunday morning celebration. Come expecting to encounter God through worship, the Word, and fellowship.</p>
-          </div>
-          <a href="contact.html" class="btn btn-outline-gold" style="white-space:nowrap;font-size:0.78rem">Plan Visit</a>
-        </div>
-
-        <div class="event-card-full reveal">
-          <div class="event-date">
-            <span class="month">Jul</span>
-            <span class="day">9</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag prayer">Prayer</span>
-            <h3>Midweek Prayer Meeting</h3>
-            <p class="event-meta">Wednesday · 6:30 PM – 8:00 PM</p>
-            <p>Come and join us mid-week to seek the face of God in prayer and fellowship. All are welcome.</p>
-          </div>
-          <a href="contact.html" class="btn btn-outline-gold" style="white-space:nowrap;font-size:0.78rem">More Info</a>
-        </div>
-
-        <div class="event-card-full reveal">
-          <div class="event-date">
-            <span class="month">Jul</span>
-            <span class="day">11</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag regular">Service</span>
-            <h3>Friday Bible Study</h3>
-            <p class="event-meta">Friday · 6:30 PM – 8:00 PM</p>
-            <p>Deepen your understanding of God's Word in a warm and encouraging environment. Come ready to learn and grow.</p>
-          </div>
-          <a href="contact.html" class="btn btn-outline-gold" style="white-space:nowrap;font-size:0.78rem">More Info</a>
-        </div>
-
-        <div class="event-card-full reveal">
-          <div class="event-date">
-            <span class="month">Jul</span>
-            <span class="day">19</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag prayer">Prayer</span>
-            <h3>All-Night Prayer Meeting</h3>
-            <p class="event-meta">Saturday · 10:00 PM – Dawn</p>
-            <p>A powerful night of intercession, prophetic worship, and seeking God together. Come expectant — God moves in the night watches.</p>
-          </div>
-          <a href="contact.html" class="btn btn-outline-gold" style="white-space:nowrap;font-size:0.78rem">Register</a>
-        </div>
-
-        <div class="event-card-full reveal">
-          <div class="event-date">
-            <span class="month">Jul</span>
-            <span class="day">27</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag special">Special</span>
-            <h3>Youth Night</h3>
-            <p class="event-meta">Sunday · 5:00 PM – 7:30 PM</p>
-            <p>A special evening gathering designed for young people — worship, games, teaching, and fun. Invite your friends!</p>
-          </div>
-          <a href="contact.html" class="btn btn-outline-gold" style="white-space:nowrap;font-size:0.78rem">More Info</a>
-        </div>
-
-        <p class="month-heading">August 2026</p>
-
-        <div class="event-card-full reveal">
-          <div class="event-date">
-            <span class="month">Aug</span>
-            <span class="day">2</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag special">Special</span>
-            <h3>Vacation Bible School 2026</h3>
-            <p class="event-meta">Dates TBC · All Week</p>
-            <p>A fun-filled week of Bible stories, crafts, games, and activities for children aged 5–12. Watch this space for more details!</p>
-          </div>
-          <a href="contact.html" class="btn btn-outline-gold" style="white-space:nowrap;font-size:0.78rem">Register</a>
-        </div>
-
-        <div class="event-card-full reveal">
-          <div class="event-date">
-            <span class="month">Aug</span>
-            <span class="day">16</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag prayer">Prayer</span>
-            <h3>All-Night Prayer Meeting</h3>
-            <p class="event-meta">Saturday · 10:00 PM – Dawn</p>
-            <p>Monthly all-night prayer vigil. Join us as we intercede for Manchester, our nation, and the nations of the world.</p>
-          </div>
-          <a href="contact.html" class="btn btn-outline-gold" style="white-space:nowrap;font-size:0.78rem">Register</a>
-        </div>
-
-      </div>
-
-      </div><!-- end hidden legacy grid -->
-
     </div>
   </section>
 
+  <!-- COUNTDOWN -->
+  <div style="background:var(--charcoal-md);padding:4rem 0;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <p class="section-label" style="margin-bottom:2rem">Time Until September 5</p>
+      <div class="countdown-wrap" id="countdown" style="justify-content:center">
+        <div class="count-item"><span class="count-num">—</span><span class="count-label">Days</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-item"><span class="count-num">—</span><span class="count-label">Hours</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-item"><span class="count-num">—</span><span class="count-label">Mins</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-item"><span class="count-num">—</span><span class="count-label">Secs</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT DETAIL -->
+  <section class="event-detail-section">
+    <div class="container">
+      <div class="event-detail-grid">
+        <div class="reveal">
+          <p class="section-label">Event Details</p>
+          <h2 class="section-title" style="margin-bottom:2rem">anavoroom Live</h2>
+          <ul class="event-info-list">
+            <li>
+              <div class="ei-icon">📅</div>
+              <div class="ei-text">
+                <h4>Date</h4>
+                <p>Friday, 5 September 2026</p>
+              </div>
+            </li>
+            <li>
+              <div class="ei-icon">📍</div>
+              <div class="ei-text">
+                <h4>Venue</h4>
+                <p>Manchester, M22 area</p>
+                <small>Message us directly for the exact address</small>
+              </div>
+            </li>
+            <li>
+              <div class="ei-icon">⏰</div>
+              <div class="ei-text">
+                <h4>Time</h4>
+                <p>Doors TBC</p>
+                <small>Follow our socials or message us for updates</small>
+              </div>
+            </li>
+            <li>
+              <div class="ei-icon">🎟️</div>
+              <div class="ei-text">
+                <h4>Tickets</h4>
+                <p>Details via our socials and Linktree</p>
+                <small><a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" style="color:var(--orange)">linktr.ee/anavoroom →</a></small>
+              </div>
+            </li>
+            <li>
+              <div class="ei-icon">✉️</div>
+              <div class="ei-text">
+                <h4>Contact</h4>
+                <p><a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <p class="section-label">About the Event</p>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--offwhite);margin-bottom:1.25rem">
+            An Evening of Worship, Prayer &amp; Encounter
+          </h3>
+          <p style="margin-bottom:1.25rem">
+            This is more than an event — it's an invitation to step into the presence of God.
+            anavoroom Live brings together worshippers, believers, and seekers for an evening
+            of anointed praise, powerful prayer, and real encounter.
+          </p>
+          <p style="margin-bottom:1.25rem">
+            Whether you've been walking with God for decades or you're taking your first steps,
+            you are welcome here. Come as you are.
+          </p>
+          <p style="margin-bottom:2.5rem">
+            For venue address, DM us on Instagram or send us an email. We'll send you everything
+            you need to know.
+          </p>
+
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+            <a href="contact.html" class="btn btn-orange">Get Venue Address</a>
+            <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="btn btn-outline-orange">DM on Instagram</a>
+          </div>
+
+          <div style="margin-top:2.5rem;padding:1.5rem;background:rgba(255,128,80,0.07);border:1px solid rgba(255,128,80,0.2);border-radius:8px">
+            <p style="font-size:0.85rem;color:var(--gray)">
+              <span style="color:var(--orange);font-weight:700">Staying updated:</span> Follow
+              <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" style="color:var(--orange)">@anavoroom</a> on Instagram
+              and <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" style="color:var(--orange)">@anavoroom</a> on TikTok
+              for the latest announcements, venue reveals, and event updates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS / MORE COMING -->
+  <section class="past-events-section">
+    <div class="container">
+      <div style="text-align:center;max-width:680px;margin:0 auto" class="reveal">
+        <p class="section-label">More Events</p>
+        <h2 class="section-title" style="margin-bottom:1.25rem">More Events Coming Soon</h2>
+        <p style="margin-bottom:2.5rem">
+          We're always working on what's next. Follow us on social media so you're the first
+          to hear about upcoming events, locations, and announcements.
+        </p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
+          <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="btn btn-orange">Follow on Instagram</a>
+          <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="btn btn-outline-orange">All Links</a>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;margin-top:5rem">
+        <div style="padding:2rem;background:var(--charcoal-lt);border:1px solid var(--border);border-radius:8px;text-align:center" class="reveal">
+          <div style="font-size:2.5rem;margin-bottom:1rem">📣</div>
+          <h3 style="color:var(--offwhite);font-size:1rem;margin-bottom:0.5rem">Announcements</h3>
+          <p style="font-size:0.85rem">Follow our socials for new event dates and details as soon as they drop.</p>
+        </div>
+        <div style="padding:2rem;background:var(--charcoal-lt);border:1px solid var(--border);border-radius:8px;text-align:center" class="reveal">
+          <div style="font-size:2.5rem;margin-bottom:1rem">📧</div>
+          <h3 style="color:var(--offwhite);font-size:1rem;margin-bottom:0.5rem">Stay Connected</h3>
+          <p style="font-size:0.85rem">Email <a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a> to get on our mailing list.</p>
+        </div>
+        <div style="padding:2rem;background:var(--charcoal-lt);border:1px solid var(--border);border-radius:8px;text-align:center" class="reveal">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🌿</div>
+          <h3 style="color:var(--offwhite);font-size:1rem;margin-bottom:0.5rem">All Our Links</h3>
+          <p style="font-size:0.85rem">Find tickets, socials, and more at <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" style="color:var(--orange)">linktr.ee/anavoroom</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT CTA -->
   <section class="connect-section">
     <div class="container">
-      <h2 class="reveal">Never Miss an Event</h2>
-      <p class="reveal">Get in touch and we'll keep you updated on everything happening at USPC Manchester.</p>
+      <h2 class="reveal">Don't Miss September 5</h2>
+      <p class="reveal">Get the venue details, mark your calendar, and come ready to encounter the presence of God.</p>
       <div class="connect-actions reveal">
-        <a href="contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="contact.html" class="btn btn-orange">Get Venue Details</a>
+        <a href="watch.html" class="btn btn-outline-white">Watch Past Events</a>
       </div>
     </div>
   </section>
@@ -293,31 +222,52 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="pictures/uspc-logo.png" alt="USPC Manchester" />
-          <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
-          <p>A Spirit-filled, Bible-believing community in the heart of Manchester.</p>
+          <div class="footer-logo">
+            <div class="logo-mark">a</div>
+            <span class="nav-logo-text">anavoroom</span>
+          </div>
+          <p>A Spirit-led Christian community creating spaces for encounter, worship, and community across the UK.</p>
+          <p class="charity-reg">Registered Charity &middot; A/C: 01724037 &middot; SC: 40-31-30</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
-          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="ministries.html">Ministries</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="watch.html">Watch</a></li><li><a href="contact.html">Contact</a></li></ul>
-        </div>
-        <div class="footer-col">
-          <h4>Service Times</h4>
           <ul>
-            <li><a href="index.html#services">Sunday School: 9:30 – 10:00 AM</a></li>
-            <li><a href="index.html#services">English Service: 10:15 – 11:15 AM</a></li>
-            <li><a href="index.html#services">Malayalam Service: 11:15 AM – 1:15 PM</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="watch.html">Watch</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>89 Floatshall Rd, Wythenshawe,<br />Manchester M23 1JB</p><br />
-          <p><a href="mailto:unitedshalomchurch@gmail.com" style="color:var(--gold)">unitedshalomchurch@gmail.com</a></p>
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.85rem;font-weight:700;color:var(--offwhite)">🌿</a>
+          </div>
+          <p style="margin-top:1.25rem"><a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Next Event</h4>
+          <p>
+            <span style="color:var(--orange);font-weight:700;font-size:1.1rem">5 Sep 2026</span><br /><br />
+            Manchester, M22 area<br /><br />
+            <a href="contact.html" style="color:var(--orange);font-size:0.82rem">Message us for venue →</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span class="current-year"></span> United Shalom Pentecostal Church Manchester. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy Policy</a></div>
       </div>
     </div>
   </footer>

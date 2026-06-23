@@ -3,110 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery — USPC Manchester</title>
-  <meta name="description" content="Photos and videos from life at United Shalom Pentecostal Church Manchester." />
+  <title>Gallery — anavoroom</title>
+  <meta name="description" content="Photos and videos from anavoroom events — moments of worship, community, and encounter." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="pictures/uspc-logo.png" />
-  <style>
-    .gallery-page { padding: 5rem 0 7rem; }
-
-.video-section { margin-top: 5rem; }
-    .video-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-    .video-section > p { color: var(--gray); margin-bottom: 2.5rem; }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .video-placeholder {
-      height: 200px;
-      background: linear-gradient(135deg, var(--navy), var(--purple));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .video-placeholder:hover { opacity: 0.85; }
-
-    .play-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: rgba(229, 184, 28, 0.92);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: var(--navy);
-    }
-
-    .video-card { }
-    .video-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-top: 0.75rem;
-    }
-    .video-card p { font-size: 0.8rem; color: var(--gray); margin-top: 0.25rem; }
-
-    .upload-notice {
-      background: rgba(229, 184, 28, 0.08);
-      border: 1px dashed var(--gold);
-      border-radius: 8px;
-      padding: 3rem;
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .upload-notice p { color: var(--gray); font-size: 0.9rem; }
-    .upload-notice strong { color: var(--white); }
-
-    @media (max-width: 768px) {
-      .photo-grid { columns: 2; }
-    }
-    @media (max-width: 480px) {
-      .photo-grid { columns: 1; }
-    }
-  </style>
 </head>
 <body>
 
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
-        <img src="pictures/uspc-logo.png" alt="USPC Manchester Logo" />
-        <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
+        <div class="logo-mark">a</div>
+        <span class="nav-logo-text">anavoroom</span>
       </a>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li class="has-dropdown"><a href="about.html">About Us</a>
+        <li class="has-dropdown">
+          <a href="about.html">About</a>
           <ul class="dropdown-menu">
-            <li><a href="about.html#history">Our History</a></li>
+            <li><a href="about.html#story">Our Story</a></li>
             <li><a href="about.html#vision">Vision &amp; Mission</a></li>
             <li><a href="about.html#leadership">Leadership</a></li>
-            <li><a href="about.html#beliefs">What We Believe</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown"><a href="ministries.html">Ministries</a>
-          <ul class="dropdown-menu">
-            <li><a href="ministries.html#worship">Worship</a></li>
-            <li><a href="ministries.html#youth">Youth &amp; Children</a></li>
-            <li><a href="ministries.html#women">Women's Ministry</a></li>
-            <li><a href="ministries.html#charity">Charity &amp; Giving</a></li>
-            <li><a href="ministries.html#outreach">Community Outreach</a></li>
+            <li><a href="about.html#charity">Charity</a></li>
           </ul>
         </li>
         <li><a href="events.html">Events</a></li>
@@ -114,8 +34,10 @@
         <li><a href="watch.html">Watch</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="contact.html#prayer" class="btn btn-gold nav-cta">Prayer Request</a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <a href="events.html" class="btn btn-orange nav-cta">Next Event</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -123,60 +45,82 @@
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a><span>Gallery</span></div>
       <h1>Gallery</h1>
-      <p>A glimpse into life at USPC Manchester — moments of worship, community, and celebration.</p>
+      <p>Moments of worship, community, and encounter from our events.</p>
     </div>
   </div>
 
-  <section class="gallery-page">
+  <!-- PHOTOS -->
+  <section class="gallery-page-section">
     <div class="container">
 
-      <!-- PHOTO GALLERY — Google Drive embed -->
       <div class="reveal" style="margin-bottom:3rem">
         <p class="section-label">Photo Gallery</p>
-        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:0.5rem">Our Photos</h2>
-        <p style="color:var(--gray);margin-bottom:1.75rem">Moments of worship, community, and celebration at USPC Manchester.</p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--offwhite);margin-bottom:0.5rem">Our Photos</h2>
+        <p style="color:var(--gray);margin-bottom:2rem">Moments from our events — real people, real encounter.</p>
 
-        <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--navy)">
-          <iframe
-            src="https://drive.google.com/embeddedfolderview?id=1gvy6Lao6_k209kxVTrdgXaXnE9xNUXAQ#grid"
-            style="width:100%;height:600px;border:0;display:block;"
-            allowfullscreen
-            title="USPC Manchester Photo Gallery"></iframe>
+        <!-- PHOTO GALLERY EMBED -->
+        <!-- To embed your Google Drive folder, replace FOLDER_ID_HERE below with your actual Drive folder ID -->
+        <!-- The iframe src format is: https://drive.google.com/embeddedfolderview?id=FOLDER_ID_HERE#grid -->
+
+        <div class="photo-drive-wrap">
+          <div class="photo-coming-soon">
+            <div class="big-icon">📸</div>
+            <h3>Photos Coming Soon</h3>
+            <p>We'll be adding event photos here. Follow us on Instagram for the latest moments.</p>
+          </div>
         </div>
 
-        <div style="text-align:center;margin-top:1.5rem">
-          <a href="https://drive.google.com/drive/folders/1gvy6Lao6_k209kxVTrdgXaXnE9xNUXAQ?usp=sharing"
-             target="_blank" rel="noopener" class="btn btn-gold">
-            Open Full Gallery on Google Drive
+        <div style="text-align:center;margin-top:1.75rem">
+          <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="btn btn-orange">
+            See More on Instagram
           </a>
         </div>
       </div>
 
-      <!-- VIDEO SECTION -->
-      <div class="video-section reveal">
-        <p class="section-label">Watch &amp; Listen</p>
-        <h2>Latest Videos</h2>
-        <p>Watch sermons, worship recordings, and highlights from USPC Manchester.</p>
-        <div class="video-grid" id="gallery-video-grid">
-          <p style="color:var(--gray);grid-column:1/-1">Loading videos…</p>
+      <!-- VIDEOS -->
+      <div class="gallery-videos-section reveal">
+        <p class="section-label">Video</p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--offwhite);margin-bottom:0.5rem">Latest Videos</h2>
+        <p style="color:var(--gray);margin-bottom:2.5rem">Watch worship, highlights, and more from anavoroom.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem" id="gallery-video-grid">
+          <p style="color:var(--gray)">Loading videos…</p>
         </div>
+
         <div style="text-align:center;margin-top:2rem">
-          <a href="watch.html" class="btn btn-navy" style="margin-right:1rem">View All Videos</a>
-          <a href="https://www.youtube.com/@USPC_MCR" target="_blank" rel="noopener" class="btn btn-outline-gold">Subscribe on YouTube</a>
+          <a href="watch.html" class="btn btn-outline-orange" style="margin-right:1rem">View All Videos</a>
+          <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="btn btn-outline-white">Subscribe on YouTube</a>
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- TIKTOK -->
+  <section style="padding:6rem 0;background:var(--charcoal-md);text-align:center">
+    <div class="container">
+      <div class="reveal" style="max-width:600px;margin:0 auto">
+        <p class="section-label">Also On TikTok</p>
+        <h2 class="section-title" style="margin-bottom:1.25rem">Find Us on TikTok</h2>
+        <p style="margin-bottom:2rem">
+          Short clips, highlights, and behind-the-scenes moments from our events — all on TikTok.
+        </p>
+        <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="btn btn-orange">
+          @anavoroom on TikTok
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT CTA -->
   <section class="connect-section">
     <div class="container">
       <h2 class="reveal">Follow Us for More</h2>
-      <p class="reveal">Stay connected on social media for service updates, events, and encouragement throughout the week.</p>
+      <p class="reveal">Stay connected on social media for event updates, worship content, and community moments throughout the year.</p>
       <div class="connect-actions reveal">
-        <a href="https://www.facebook.com/profile.php?id=100090783063581" target="_blank" rel="noopener" class="btn btn-gold">Follow on Facebook</a>
-        <a href="https://www.youtube.com/@USPC_MCR" target="_blank" rel="noopener" class="btn btn-outline-white">Subscribe on YouTube</a>
-        <a href="https://www.instagram.com/uspc_manchester" target="_blank" rel="noopener" class="btn btn-outline-white">Follow on Instagram</a>
+        <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="btn btn-orange">Follow on Instagram</a>
+        <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="btn btn-outline-white">Subscribe on YouTube</a>
+        <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="btn btn-outline-white">Follow on TikTok</a>
       </div>
     </div>
   </section>
@@ -185,31 +129,52 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="pictures/uspc-logo.png" alt="USPC Manchester" />
-          <div class="nav-logo-text">USPC Manchester<span>United Shalom Pentecostal Church</span></div>
-          <p>A Spirit-filled, Bible-believing community in the heart of Manchester.</p>
+          <div class="footer-logo">
+            <div class="logo-mark">a</div>
+            <span class="nav-logo-text">anavoroom</span>
+          </div>
+          <p>A Spirit-led Christian community creating spaces for encounter, worship, and community across the UK.</p>
+          <p class="charity-reg">Registered Charity &middot; A/C: 01724037 &middot; SC: 40-31-30</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
-          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="ministries.html">Ministries</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="watch.html">Watch</a></li><li><a href="contact.html">Contact</a></li></ul>
-        </div>
-        <div class="footer-col">
-          <h4>Service Times</h4>
           <ul>
-            <li><a href="index.html#services">Sunday School: 9:30 – 10:00 AM</a></li>
-            <li><a href="index.html#services">English Service: 10:15 – 11:15 AM</a></li>
-            <li><a href="index.html#services">Malayalam Service: 11:15 AM – 1:15 PM</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="watch.html">Watch</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>89 Floatshall Rd, Wythenshawe,<br />Manchester M23 1JB</p><br />
-          <p><a href="mailto:unitedshalomchurch@gmail.com" style="color:var(--gold)">unitedshalomchurch@gmail.com</a></p>
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://www.youtube.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.tiktok.com/@anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://www.instagram.com/anavoroom/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:18px;height:18px;filter:invert(1)" />
+            </a>
+            <a href="https://linktr.ee/anavoroom" target="_blank" rel="noopener" class="social-btn" aria-label="Linktree" style="font-size:0.85rem;font-weight:700;color:var(--offwhite)">🌿</a>
+          </div>
+          <p style="margin-top:1.25rem"><a href="mailto:anavoroom@gmail.com" style="color:var(--orange)">anavoroom@gmail.com</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Next Event</h4>
+          <p>
+            <span style="color:var(--orange);font-weight:700;font-size:1.1rem">5 Sep 2026</span><br /><br />
+            Manchester, M22 area<br /><br />
+            <a href="contact.html" style="color:var(--orange);font-size:0.82rem">Message us for venue →</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span class="current-year"></span> United Shalom Pentecostal Church Manchester. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+        <p>&copy; <span class="current-year"></span> anavoroom. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy Policy</a></div>
       </div>
     </div>
   </footer>

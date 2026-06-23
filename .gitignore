@@ -2,3 +2,5 @@
 info.txt
 UPDATES.txt
 .claude/
+*.local
+.env
