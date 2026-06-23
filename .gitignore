@@ -4,3 +4,6 @@ UPDATES.txt
 .claude/
 *.local
 .env
+node_modules/
+*.db-shm
+*.db-wal
