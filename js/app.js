@@ -21,12 +21,94 @@
 
   function qs(sel) { return document.querySelector(sel); }
 
+  // Inline field-level error — injects a small error line below the input
+  function setFieldError(id, msg) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let err = el.parentElement.querySelector('.field-inline-err');
+    if (!err) {
+      err = document.createElement('p');
+      err.className = 'field-inline-err';
+      err.style.cssText = 'color:#fc8181;font-size:0.78rem;margin-top:0.3rem;display:none';
+      el.after(err);
+    }
+    if (msg) {
+      err.textContent = msg;
+      err.style.display = 'block';
+      el.style.borderColor = 'rgba(239,68,68,0.5)';
+    } else {
+      err.style.display = 'none';
+      el.style.borderColor = '';
+    }
+  }
+
+  function clearFieldErrors(...ids) {
+    ids.forEach(id => setFieldError(id, ''));
+  }
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+
+  // Validates ticket form fields; returns true if all OK, false + shows errors if not
+  function validateTicketForm() {
+    const name  = (document.getElementById('buyer-name')?.value  || '').trim();
+    const email = (document.getElementById('buyer-email')?.value || '').trim();
+    let ok = true;
+
+    if (!name || name.length < 2) {
+      setFieldError('buyer-name', 'Please enter your full name');
+      ok = false;
+    } else {
+      setFieldError('buyer-name', '');
+    }
+
+    if (!email) {
+      setFieldError('buyer-email', 'Please enter your email address');
+      ok = false;
+    } else if (!isValidEmail(email)) {
+      setFieldError('buyer-email', 'Please enter a valid email address (e.g. you@example.com)');
+      ok = false;
+    } else {
+      setFieldError('buyer-email', '');
+    }
+
+    return ok;
+  }
+
+  // Validates payment form; returns true if OK
+  function validatePaymentForm() {
+    const name = (document.getElementById('payer-name')?.value || '').trim();
+    let ok = true;
+
+    if (!name || name.length < 2) {
+      setFieldError('payer-name', 'Please enter the name on your bank account');
+      ok = false;
+    } else {
+      setFieldError('payer-name', '');
+    }
+
+    return ok;
+  }
+
+  // Friendly API error messages — turn technical strings into plain English
+  function friendlyError(raw) {
+    if (!raw) return 'Something went wrong. Please try again.';
+    const r = raw.toLowerCase();
+    if (r.includes('only') && r.includes('remaining'))  return raw; // "Only N tickets remaining" is already clear
+    if (r.includes('sold out'))                          return 'Sorry, this event is now sold out.';
+    if (r.includes('event not found'))                   return 'We couldn\'t find this event. Please go back and try again.';
+    if (r.includes('required'))                          return 'Please fill in all required fields.';
+    if (r.includes('quantity'))                          return 'Please choose a valid number of tickets (1–10).';
+    if (r.includes('payment not found'))                 return 'We couldn\'t find your payment. Please go back and try again.';
+    if (r.includes('ticket not found'))                  return 'We couldn\'t find your ticket. Keep your reference number safe.';
+    return 'Something went wrong. Please try again.';
+  }
+
   // ── Homepage: load events from API ───────────────────────────────────────
 
   const eventsGrid = document.getElementById('homepage-events-grid');
-  if (eventsGrid) {
-    loadHomeEvents();
-  }
+  if (eventsGrid) loadHomeEvents();
 
   async function loadHomeEvents() {
     try {
@@ -39,7 +121,6 @@
       }
       eventsGrid.innerHTML = events.map(eventListCard).join('');
     } catch {
-      // Fallback: static card
       eventsGrid.innerHTML = staticFallbackCard();
     }
   }
@@ -95,9 +176,7 @@
   // ── event.html — Event detail + ticket form ───────────────────────────────
 
   const eventDetailWrap = document.getElementById('event-detail-wrap');
-  if (eventDetailWrap) {
-    initEventPage();
-  }
+  if (eventDetailWrap) initEventPage();
 
   async function initEventPage() {
     const params = new URLSearchParams(window.location.search);
@@ -112,9 +191,9 @@
       if (!res.ok) throw new Error('Event not found');
       const { event } = await res.json();
       renderEventDetail(event);
-    } catch (err) {
+    } catch {
       if (loading) loading.style.display = 'none';
-      if (errEl)   showError(errEl, 'Could not load event details. Please try again.');
+      if (errEl)   showError(errEl, 'Could not load event details. Please refresh the page or go back to Events.');
     }
   }
 
@@ -125,18 +204,22 @@
     const available = ev.available ?? (ev.capacity - ev.tickets_sold);
     const soldOut   = available <= 0;
 
-    // Banner
+    // Banner — content wrapped in .container so it respects page margins
     const banner = document.getElementById('event-banner');
     if (banner) {
       banner.style.background = `linear-gradient(135deg, ${ev.image_color}22 0%, #111 60%)`;
       banner.innerHTML = `
         <div class="ev-detail-banner-inner">
-          <p class="section-label">${ev.city} &nbsp;·&nbsp; ${fmtDate(ev.date)}</p>
-          <h1 class="ev-detail-title">${ev.title}</h1>
-          <p class="ev-detail-time">${ev.time}</p>
-          <div class="ev-detail-price-row">
-            <span class="ev-detail-price">${fmtPrice(ev.price)}</span>
-            ${!soldOut ? `<span class="ev-avail-badge">${available} tickets left</span>` : '<span class="ev-avail-badge sold">Sold Out</span>'}
+          <div class="container">
+            <p class="section-label">${ev.city} &nbsp;·&nbsp; ${fmtDate(ev.date)}</p>
+            <h1 class="ev-detail-title">${ev.title}</h1>
+            <p class="ev-detail-time">${ev.time}</p>
+            <div class="ev-detail-price-row">
+              <span class="ev-detail-price">${fmtPrice(ev.price)}</span>
+              ${!soldOut
+                ? `<span class="ev-avail-badge">${available} tickets left</span>`
+                : '<span class="ev-avail-badge sold">Sold Out</span>'}
+            </div>
           </div>
         </div>`;
     }
@@ -155,30 +238,45 @@
         return;
       }
 
-      // Populate quantity selector (max 10 or available)
+      // Quantity selector
       const maxQty = Math.min(10, available);
       const qtyEl  = document.getElementById('ticket-qty');
       if (qtyEl) {
         for (let i = 1; i <= maxQty; i++) {
-          const opt   = document.createElement('option');
-          opt.value   = i;
-          opt.textContent = i;
+          const opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = `${i} ticket${i > 1 ? 's' : ''}`;
           qtyEl.appendChild(opt);
         }
         qtyEl.addEventListener('change', () => updateTotal(ev.price));
       }
       updateTotal(ev.price);
 
+      // Live validation on blur
+      document.getElementById('buyer-name')?.addEventListener('blur', () => {
+        const v = document.getElementById('buyer-name').value.trim();
+        setFieldError('buyer-name', v.length < 2 ? 'Please enter your full name' : '');
+      });
+      document.getElementById('buyer-email')?.addEventListener('blur', () => {
+        const v = document.getElementById('buyer-email').value.trim();
+        if (!v) setFieldError('buyer-email', 'Please enter your email address');
+        else if (!isValidEmail(v)) setFieldError('buyer-email', 'Please enter a valid email address (e.g. you@example.com)');
+        else setFieldError('buyer-email', '');
+      });
+
       // Form submit
-      const form    = document.getElementById('ticket-form');
-      const errMsg  = document.getElementById('ticket-form-error');
+      const form      = document.getElementById('ticket-form');
+      const errMsg    = document.getElementById('ticket-form-error');
       const submitBtn = document.getElementById('ticket-submit');
 
       if (form) {
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
           if (errMsg) errMsg.style.display = 'none';
-          submitBtn.disabled   = true;
+
+          if (!validateTicketForm()) return; // stop here, inline errors already shown
+
+          submitBtn.disabled    = true;
           submitBtn.textContent = 'Processing…';
 
           const body = {
@@ -196,17 +294,15 @@
               body:    JSON.stringify(body),
             });
             const data = await res.json();
-
             if (!res.ok) throw new Error(data.error || 'Failed to create booking');
 
-            // Store checkout data for next page
             sessionStorage.setItem('anavoroom_checkout', JSON.stringify(data));
             window.location.href = '/checkout.html';
 
           } catch (err) {
-            submitBtn.disabled   = false;
-            submitBtn.textContent = 'Proceed to Payment';
-            if (errMsg) showError(errMsg, err.message || 'Something went wrong. Please try again.');
+            submitBtn.disabled    = false;
+            submitBtn.textContent = 'Proceed to Payment →';
+            if (errMsg) showError(errMsg, friendlyError(err.message));
           }
         });
       }
@@ -214,24 +310,20 @@
   }
 
   function updateTotal(unitPrice) {
-    const qty      = parseInt((document.getElementById('ticket-qty') || {}).value || '1', 10);
-    const totalEl  = document.getElementById('ticket-total');
+    const qty     = parseInt((document.getElementById('ticket-qty') || {}).value || '1', 10);
+    const totalEl = document.getElementById('ticket-total');
     if (totalEl) totalEl.textContent = fmtPrice(unitPrice * qty);
   }
 
   // ── checkout.html — Payment page ──────────────────────────────────────────
 
   const checkoutWrap = document.getElementById('checkout-wrap');
-  if (checkoutWrap) {
-    initCheckout();
-  }
+  if (checkoutWrap) initCheckout();
 
   function initCheckout() {
     const raw = sessionStorage.getItem('anavoroom_checkout');
     if (!raw) { window.location.href = '/events.html'; return; }
-
-    const data = JSON.parse(raw);
-    renderCheckout(data);
+    renderCheckout(JSON.parse(raw));
   }
 
   function renderCheckout(data) {
@@ -266,9 +358,30 @@
         <div class="bank-detail-row total-row"><span>Amount</span><strong>${fmtPrice(amount)}</strong></div>`;
     }
 
-    // Ticket ref display
+    // Ticket ref
     const refEl = document.getElementById('pending-ticket-ref');
     if (refEl) refEl.textContent = ticket_ref;
+
+    // Amount display
+    const amountEl = document.querySelector('.co-amount-val');
+    if (amountEl) amountEl.textContent = fmtPrice(amount);
+
+    // Live validation on blur
+    document.getElementById('payer-name')?.addEventListener('blur', () => {
+      const v = document.getElementById('payer-name').value.trim();
+      setFieldError('payer-name', v.length < 2 ? 'Please enter the name on your bank account' : '');
+    });
+
+    // Auto-format sort code as XX-XX-XX
+    const sortEl = document.getElementById('payer-sort');
+    if (sortEl) {
+      sortEl.addEventListener('input', () => {
+        let v = sortEl.value.replace(/\D/g, '').slice(0, 6);
+        if (v.length > 4) v = v.slice(0,2) + '-' + v.slice(2,4) + '-' + v.slice(4);
+        else if (v.length > 2) v = v.slice(0,2) + '-' + v.slice(2);
+        sortEl.value = v;
+      });
+    }
 
     // Form submit
     const form      = document.getElementById('payment-form');
@@ -279,10 +392,12 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (errMsg) errMsg.style.display = 'none';
+
+        if (!validatePaymentForm()) return;
+
         submitBtn.disabled    = true;
         submitBtn.textContent = 'Confirming payment…';
 
-        // Simulate bank API latency
         await new Promise(r => setTimeout(r, 1800));
 
         try {
@@ -290,14 +405,13 @@
             method:  'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              payment_ref:    payment_ref,
-              payer_name:     document.getElementById('payer-name').value.trim(),
-              payer_sort_code:document.getElementById('payer-sort').value.trim(),
-              payer_account:  document.getElementById('payer-account').value.trim(),
+              payment_ref,
+              payer_name:      document.getElementById('payer-name').value.trim(),
+              payer_sort_code: document.getElementById('payer-sort').value.trim(),
+              payer_account:   document.getElementById('payer-account').value.trim(),
             }),
           });
           const result = await res.json();
-
           if (!res.ok) throw new Error(result.error || 'Payment failed');
 
           sessionStorage.removeItem('anavoroom_checkout');
@@ -305,8 +419,8 @@
 
         } catch (err) {
           submitBtn.disabled    = false;
-          submitBtn.textContent = 'Confirm Payment';
-          if (errMsg) showError(errMsg, err.message || 'Payment failed. Please try again.');
+          submitBtn.textContent = 'Confirm Payment →';
+          if (errMsg) showError(errMsg, friendlyError(err.message));
         }
       });
     }
@@ -315,9 +429,7 @@
   // ── confirmation.html — Ticket confirmed ─────────────────────────────────
 
   const confirmationWrap = document.getElementById('confirmation-wrap');
-  if (confirmationWrap) {
-    initConfirmation();
-  }
+  if (confirmationWrap) initConfirmation();
 
   async function initConfirmation() {
     const params = new URLSearchParams(window.location.search);
@@ -331,17 +443,15 @@
       const res = await fetch(`/api/tickets/${ref}`);
       if (!res.ok) throw new Error('Ticket not found');
       const { ticket } = await res.json();
-      renderConfirmation(ticket);
-    } catch (err) {
       if (loading) loading.style.display = 'none';
-      if (errEl)   showError(errEl, 'Could not load ticket details. Keep your reference number: ' + ref);
+      renderConfirmation(ticket);
+    } catch {
+      if (loading) loading.style.display = 'none';
+      if (errEl)   showError(errEl, `Could not load your ticket. Your booking reference is ${ref} — keep it safe.`);
     }
   }
 
   function renderConfirmation(t) {
-    const loading = document.getElementById('conf-loading');
-    if (loading) loading.style.display = 'none';
-
     const wrap = document.getElementById('ticket-card');
     if (!wrap) return;
 
@@ -373,7 +483,7 @@
           </div>
           <div class="ticket-notice">
             <p>📍 The exact venue address will be emailed to <strong>${t.buyer_email}</strong> before the event.</p>
-            <p>Keep your ticket reference number: <strong>${t.reference}</strong> — you'll need it on the door.</p>
+            <p>Keep your ticket reference: <strong>${t.reference}</strong> — you'll need it on the door.</p>
           </div>
         </div>
         <div class="ticket-card-footer">
