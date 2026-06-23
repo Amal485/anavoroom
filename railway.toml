@@ -6,6 +6,7 @@ startCommand = "npm start"
 healthcheckPath = "/api/events"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
+port = 8000
 
 [[mounts]]
 mountPath = "/app/data"
